@@ -7,6 +7,12 @@ app.get('/', (req, res) => {
     res.send(`Hello from Pod ${process.env.HOSTNAME}`);
 });
 
+app.get('/cpu', (req, res) => {
+    const start = Date.now();
+    while (Date.now() - start < 300) {} // burn CPU ~300ms
+    res.send(`CPU burned by ${process.env.HOSTNAME}`);
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
