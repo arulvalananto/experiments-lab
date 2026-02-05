@@ -8,11 +8,12 @@ let ready = false;
 setTimeout(() => {
     ready = true;
     console.log('App is ready');
+    console.log('DB_USERNAME LOADED', !!process.env.DB_USERNAME);
 }, 10000); // 10 seconds
 
 app.get('/', (req, res) => {
     res.send(
-        `${process.env.MESSAGE} | Env: ${process.env.APP_ENV} | Pod: ${process.env.HOSTNAME}`,
+        `${process.env.MESSAGE} | Env: ${process.env.APP_ENV} | Pod: ${process.env.HOSTNAME} | DB User: ${process.env.DB_USERNAME}`,
     );
 });
 

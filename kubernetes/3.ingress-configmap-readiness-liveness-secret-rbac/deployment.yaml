@@ -41,6 +41,16 @@ spec:
                 configMapKeyRef:
                   name: node-app-config
                   key: MESSAGE
+            - name: DB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: node-app-secret
+                  key: DB_USERNAME
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: node-app-secret
+                  key: DB_PASSWORD
           resources:
             requests:
               cpu: "100m"
