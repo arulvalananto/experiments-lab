@@ -4,7 +4,9 @@ const app = express();
 const PORT = 3000;
 
 app.get('/', (req, res) => {
-    res.send(`Hello from Pod ${process.env.HOSTNAME}`);
+    res.send(
+        `${process.env.MESSAGE} | Env: ${process.env.APP_ENV} | Pod: ${process.env.HOSTNAME}`,
+    );
 });
 
 app.get('/cpu', (req, res) => {

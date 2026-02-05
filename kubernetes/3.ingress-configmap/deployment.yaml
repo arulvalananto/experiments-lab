@@ -13,15 +13,26 @@ spec:
         app: node-app
     spec:
       containers:
-      - name: node-app
-        image: node-k8s-demo:latest
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 3000
-        resources:
-          requests:
-            cpu: "100m"
-            memory: "64Mi"
-          limits:
-            cpu: "500m"
-            memory: "128Mi"
+        - name: node-app
+          image: node-k8s-demo:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: node-app-config
+                  key: APP_ENV
+            - name: MESSAGE
+              valueFrom:
+                configMapKeyRef:
+                  name: node-app-config
+                  key: MESSAGE
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "500m"
+              memory: "128Mi"
