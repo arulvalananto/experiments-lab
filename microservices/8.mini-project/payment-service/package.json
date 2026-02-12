@@ -1,0 +1,17 @@
+{
+    "name": "payment-service",
+    "version": "1.0.0",
+    "description": "Payment microservice that processes payment events",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.9",
+        "uuid": "^13.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}

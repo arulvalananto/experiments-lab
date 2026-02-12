@@ -1,0 +1,19 @@
+{
+    "name": "order-service",
+    "version": "1.0.0",
+    "description": "Order microservice with outbox pattern for reliable messaging",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/index.js",
+        "dev": "nodemon src/index.js"
+    },
+    "dependencies": {
+        "amqplib": "^0.10.9",
+        "express": "^4.22.1",
+        "pg": "^8.18.0",
+        "uuid": "^13.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.0.1"
+    }
+}
