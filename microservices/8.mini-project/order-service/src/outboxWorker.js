@@ -1,8 +1,23 @@
 const amqp = require('amqplib');
 const { pool } = require('./db');
 
+async function connectWithRetry() {
+    const RETRY_INTERVAL = 5000;
+
+    while (true) {
+        try {
+            const connection = await amqp.connect('amqp://rabbitmq');
+            console.log('Connected to RabbitMQ');
+            return connection;
+        } catch (err) {
+            console.log('RabbitMQ not ready, retrying in 5 seconds...');
+            await new Promise((res) => setTimeout(res, RETRY_INTERVAL));
+        }
+    }
+}
+
 async function startOutboxWorker() {
-    const connection = await amqp.connect(process.env.RABBITMQ_URL);
+    const connection = await connectWithRetry();
     const channel = await connection.createChannel();
 
     const exchange = 'order_events';
