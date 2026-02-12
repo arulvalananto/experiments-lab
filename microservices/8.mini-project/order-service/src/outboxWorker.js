@@ -35,7 +35,9 @@ async function startOutboxWorker() {
                 channel.publish(
                     exchange,
                     '',
-                    Buffer.from(JSON.stringify(event.payload)),
+                    Buffer.from(
+                        JSON.stringify({ ...event.payload, eventId: event.id }),
+                    ),
                     { persistent: true },
                 );
 

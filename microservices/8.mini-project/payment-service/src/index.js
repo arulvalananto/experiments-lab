@@ -87,7 +87,8 @@ async function start() {
         if (!msg) return;
 
         const event = JSON.parse(msg.content.toString());
-        const eventId = event.orderId; // using orderId as eventId for idempotency
+        const eventId = event.eventId;
+
         console.log('Payment received event:', event);
 
         try {
