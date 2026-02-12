@@ -38,8 +38,11 @@ services:
     container_name: payment-service
     depends_on:
       - rabbitmq
+      - payment-db
     environment:
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+      DATABASE_URL: postgres://postgres:postgres@payment-db:5432/payments
+
 
   notification-service:
     build: ./notification-service
@@ -48,6 +51,16 @@ services:
       - rabbitmq
     environment:
       RABBITMQ_URL: amqp://guest:guest@rabbitmq:5672
+
+  payment-db:
+    image: postgres:15
+    container_name: payment_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: payments
+    ports:
+      - "5433:5432"
 
 volumes:
   postgres_data:
