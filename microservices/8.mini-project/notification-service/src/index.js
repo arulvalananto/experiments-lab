@@ -19,12 +19,34 @@ async function start() {
     const connection = await connectWithRetry();
     const channel = await connection.createChannel();
 
-    const exchange = 'order_events';
-    const queue = 'notification_queue';
+    // -----------------------------
+    // Exchanges
+    // -----------------------------
+    const mainExchange = 'order_events';
+    const retryExchange = 'notification_retry_exchange';
+    const dlxExchange = 'notification_dlx';
 
-    await channel.assertExchange(exchange, 'fanout', { durable: true });
+    await channel.assertExchange(mainExchange, 'fanout', { durable: true });
+    await channel.assertExchange(retryExchange, 'direct', { durable: true });
+    await channel.assertExchange(dlxExchange, 'fanout', { durable: true });
+
+    // -----------------------------
+    // Queues
+    // -----------------------------
+    const queue = 'notification_queue';
+    const dlq = 'notification_dlq';
+
     await channel.assertQueue(queue, { durable: true });
-    await channel.bindQueue(queue, exchange, '');
+    await channel.assertQueue(dlq, { durable: true });
+
+    // Bind main flow
+    await channel.bindQueue(queue, mainExchange, '');
+
+    // Bind retry flow (direct routing)
+    await channel.bindQueue(queue, retryExchange, 'notification_retry');
+
+    // Bind DLQ
+    await channel.bindQueue(dlq, dlxExchange, '');
 
     console.log('Notification Service listening...');
 
@@ -35,7 +57,9 @@ async function start() {
         const headers = msg.properties.headers || {};
         const retryCount = headers['x-retry-count'] || 0;
 
-        console.log(`Processing order ${event.orderId}, retry: ${retryCount}`);
+        console.log(
+            `Processing notification for order ${event.orderId}, retry: ${retryCount}`,
+        );
 
         try {
             await fakeSendNotification(event);
@@ -43,12 +67,13 @@ async function start() {
             channel.ack(msg);
             console.log('Notification sent for order:', event.orderId);
         } catch (err) {
-            console.error('Notification failed:', err);
+            console.error('Notification failed:', err.message);
 
             if (retryCount < 3) {
+                // 🔁 Republish to retry exchange
                 channel.publish(
-                    exchange,
-                    '',
+                    retryExchange,
+                    'notification_retry',
                     Buffer.from(JSON.stringify(event)),
                     {
                         persistent: true,
@@ -62,29 +87,33 @@ async function start() {
                     `Retrying notification ${event.orderId} (${retryCount + 1})`,
                 );
 
-                channel.ack(msg); // ✅ ACK original
+                channel.ack(msg); // ✅ ACK original message
             } else {
-                console.log(
-                    `Sending notification for order ${event.orderId} to DLQ`,
+                // 💀 Send to DLQ
+                channel.publish(
+                    dlxExchange,
+                    '',
+                    Buffer.from(JSON.stringify(event)),
+                    { persistent: true },
                 );
 
-                // Send to DLQ exchange
-                channel.publish('dlx', '', Buffer.from(JSON.stringify(event)), {
-                    persistent: true,
-                });
+                console.log(`Moved notification ${event.orderId} to DLQ`);
 
-                channel.ack(msg);
+                channel.ack(msg); // ✅ ACK original message
             }
-
-            channel.nack(msg, false, true);
         }
     });
 }
 
 async function fakeSendNotification(event) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve();
+            // simulate occasional failure
+            if (Math.random() < 0.3) {
+                reject(new Error('Random notification failure'));
+            } else {
+                resolve();
+            }
         }, 500);
     });
 }
