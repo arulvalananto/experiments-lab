@@ -32,7 +32,10 @@ async function start() {
         if (!msg) return;
 
         const event = JSON.parse(msg.content.toString());
-        console.log('Notification received event:', event);
+        const headers = msg.properties.headers || {};
+        const retryCount = headers['x-retry-count'] || 0;
+
+        console.log(`Processing order ${event.orderId}, retry: ${retryCount}`);
 
         try {
             await fakeSendNotification(event);
@@ -41,6 +44,37 @@ async function start() {
             console.log('Notification sent for order:', event.orderId);
         } catch (err) {
             console.error('Notification failed:', err);
+
+            if (retryCount < 3) {
+                channel.publish(
+                    exchange,
+                    '',
+                    Buffer.from(JSON.stringify(event)),
+                    {
+                        persistent: true,
+                        headers: {
+                            'x-retry-count': retryCount + 1,
+                        },
+                    },
+                );
+
+                console.log(
+                    `Retrying notification ${event.orderId} (${retryCount + 1})`,
+                );
+
+                channel.ack(msg); // ✅ ACK original
+            } else {
+                console.log(
+                    `Sending notification for order ${event.orderId} to DLQ`,
+                );
+
+                // Send to DLQ exchange
+                channel.publish('dlx', '', Buffer.from(JSON.stringify(event)), {
+                    persistent: true,
+                });
+
+                channel.ack(msg);
+            }
 
             channel.nack(msg, false, true);
         }

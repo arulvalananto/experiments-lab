@@ -5,15 +5,6 @@ const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
 });
 
-async function initDB() {
-    await pool.query(`
-    CREATE TABLE IF NOT EXISTS processed_events (
-      event_id VARCHAR(255) PRIMARY KEY,
-      processed_at TIMESTAMP DEFAULT NOW()
-    );
-  `);
-}
-
 async function initDBWithRetry() {
     const RETRY_INTERVAL = 5000;
 
