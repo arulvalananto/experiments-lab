@@ -61,6 +61,13 @@ services:
       POSTGRES_DB: payments
     ports:
       - "5433:5432"
+      
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: jaeger
+    ports:
+      - "16686:16686"
+      - "4318:4318"
 
 volumes:
   postgres_data:

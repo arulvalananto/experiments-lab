@@ -1,5 +1,6 @@
 const amqp = require('amqplib');
 const { pool } = require('./db');
+const { context, trace } = require('@opentelemetry/api');
 
 async function connectWithRetry() {
     const RETRY_INTERVAL = 5000;
@@ -32,15 +33,27 @@ async function startOutboxWorker() {
 
         for (const event of rows) {
             try {
+                const span = trace
+                    .getTracer('order-service')
+                    .startSpan('publish-event');
+
                 channel.publish(
                     exchange,
                     '',
                     Buffer.from(
                         JSON.stringify({ ...event.payload, eventId: event.id }),
                     ),
-                    { persistent: true },
+                    {
+                        persistent: true,
+                        headers: {
+                            traceparent: span.spanContext().traceId,
+                        },
+                    },
                 );
 
+                span.end();
+
+                // Mark as processed
                 await pool.query(
                     `UPDATE outbox SET processed = true WHERE id = $1`,
                     [event.id],

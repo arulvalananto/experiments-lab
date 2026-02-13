@@ -1,3 +1,4 @@
+require('./tracing');
 const express = require('express');
 const { initDB } = require('./db');
 const routes = require('./routes');
