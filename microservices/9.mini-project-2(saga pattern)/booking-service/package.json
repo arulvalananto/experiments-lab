@@ -1,0 +1,25 @@
+{
+    "name": "booking-service",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "dependencies": {
+        "@opentelemetry/auto-instrumentations-node": "^0.69.0",
+        "@opentelemetry/exporter-trace-otlp-http": "^0.212.0",
+        "@opentelemetry/resources": "^2.5.1",
+        "@opentelemetry/sdk-node": "^0.212.0",
+        "@opentelemetry/semantic-conventions": "^1.39.0",
+        "amqplib": "^0.10.9",
+        "express": "^5.2.1",
+        "pg": "^8.18.0",
+        "uuid": "^8.3.2"
+    }
+}
