@@ -8,6 +8,8 @@ module.exports = async function (fastify) {
         let event;
 
         try {
+            // Verify the webhook signature and construct the event object
+            // so that we can be sure it's from Stripe and hasn't been tampered with in transit.
             event = stripe.webhooks.constructEvent(
                 request.body,
                 signature,
