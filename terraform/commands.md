@@ -15,3 +15,10 @@ terraform fmt # format configuration files
 terraform apply -auto-approve
 terraform destroy -auto-approve
 ```
+
+## Using Variable Files
+
+```bash
+terraform apply -var-file=dev.tfvars
+terraform apply -var-file=stage.tfvars
+```
