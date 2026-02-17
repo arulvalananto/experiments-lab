@@ -1,7 +1,7 @@
 output "bucket_name" {
-  value = aws_s3_bucket.my_bucket.bucket
+  value = module.storage.bucket_name
 }
 
 output "dynamodb_table_name" {
-  value = aws_dynamodb_table.my_table.name
+  value = module.storage.dynamodb_table_name
 }
