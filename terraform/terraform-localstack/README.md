@@ -46,3 +46,23 @@ The project provisions and manages:
 - Terraform >= 1.0
 - LocalStack running locally
 - MinIO running for backend state storage
+
+## Workspace Setup
+
+```bash
+terraform workspace new dev
+terraform workspace new stage
+```
+
+## Dependency Graph
+
+```bash
+terraform graph | dot -Tpng > graph.png
+
+# Install Graphviz to visualize the graph if not already installed (macOS):
+# brew install graphviz  
+
+# cleaner graph output:
+terraform graph -type=plan > graph.dot
+dot -Tpng graph.dot -o graph.png
+```

@@ -1,0 +1,39 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] module.storage.aws_dynamodb_table.my_table (expand)" [label = "module.storage.aws_dynamodb_table.my_table", shape = "box"]
+		"[root] module.storage.aws_s3_bucket.my_bucket (expand)" [label = "module.storage.aws_s3_bucket.my_bucket", shape = "box"]
+		"[root] module.storage.aws_s3_object.my_object (expand)" [label = "module.storage.aws_s3_object.my_object", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.bucket_name" [label = "var.bucket_name", shape = "note"]
+		"[root] var.dynamodb_table_name" [label = "var.dynamodb_table_name", shape = "note"]
+		"[root] var.environment" [label = "var.environment", shape = "note"]
+		"[root] module.storage (close)" -> "[root] module.storage.aws_s3_object.my_object (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.bucket_name (expand)"
+		"[root] module.storage (close)" -> "[root] module.storage.output.dynamodb_table_name (expand)"
+		"[root] module.storage.aws_dynamodb_table.my_table (expand)" -> "[root] module.storage.var.dynamodb_table_name (expand)"
+		"[root] module.storage.aws_dynamodb_table.my_table (expand)" -> "[root] module.storage.var.environment (expand)"
+		"[root] module.storage.aws_dynamodb_table.my_table (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] module.storage.aws_s3_bucket.my_bucket (expand)" -> "[root] module.storage.var.bucket_name (expand)"
+		"[root] module.storage.aws_s3_bucket.my_bucket (expand)" -> "[root] module.storage.var.environment (expand)"
+		"[root] module.storage.aws_s3_bucket.my_bucket (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] module.storage.aws_s3_object.my_object (expand)" -> "[root] module.storage.aws_s3_bucket.my_bucket (expand)"
+		"[root] module.storage.output.bucket_name (expand)" -> "[root] module.storage.aws_s3_bucket.my_bucket (expand)"
+		"[root] module.storage.output.dynamodb_table_name (expand)" -> "[root] module.storage.aws_dynamodb_table.my_table (expand)"
+		"[root] module.storage.var.bucket_name (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.bucket_name (expand)" -> "[root] var.bucket_name"
+		"[root] module.storage.var.dynamodb_table_name (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.dynamodb_table_name (expand)" -> "[root] var.dynamodb_table_name"
+		"[root] module.storage.var.environment (expand)" -> "[root] module.storage (expand)"
+		"[root] module.storage.var.environment (expand)" -> "[root] var.environment"
+		"[root] output.bucket_name (expand)" -> "[root] module.storage.output.bucket_name (expand)"
+		"[root] output.dynamodb_table_name (expand)" -> "[root] module.storage.output.dynamodb_table_name (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.storage.aws_dynamodb_table.my_table (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] module.storage.aws_s3_object.my_object (expand)"
+		"[root] root" -> "[root] module.storage (close)"
+		"[root] root" -> "[root] output.bucket_name (expand)"
+		"[root] root" -> "[root] output.dynamodb_table_name (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+	}
+}
