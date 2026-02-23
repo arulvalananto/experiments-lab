@@ -1,10 +1,12 @@
 import { randomUUID } from 'crypto'
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
+import { ZodError } from 'zod'
 
 import { db } from '../database'
 import { generateToken } from '../common/jwt'
 import { hashPassword, comparePassword } from '../common/password'
-import { RegisterRequest, LoginRequest, AuthResponse } from '../types'
+import { RegisterRequestSchema, LoginRequestSchema, AuthResponse } from '../schemas'
+import { RegisterRequest, LoginRequest } from '../types'
 
 interface RegisterBody {
     Body: RegisterRequest
@@ -12,6 +14,21 @@ interface RegisterBody {
 
 interface LoginBody {
     Body: LoginRequest
+}
+
+// Helper to handle Zod validation errors
+function handleValidationError(error: ZodError, reply: FastifyReply) {
+    const validationErrors = error.issues.map((issue) => ({
+        field: issue.path.join('.'),
+        message: issue.message
+    }))
+
+    return reply.code(400).send({
+        statusCode: 400,
+        error: 'Bad Request',
+        message: 'Validation failed',
+        errors: validationErrors
+    })
 }
 
 export async function setupAuthRoutes(fastify: FastifyInstance): Promise<void> {
@@ -23,22 +40,11 @@ export async function setupAuthRoutes(fastify: FastifyInstance): Promise<void> {
     // Register endpoint
     fastify.post<RegisterBody>(
         '/register',
-        {
-            schema: {
-                body: {
-                    type: 'object',
-                    required: ['email', 'password', 'name'],
-                    properties: {
-                        email: { type: 'string', format: 'email' },
-                        password: { type: 'string', minLength: 6 },
-                        name: { type: 'string', minLength: 1 }
-                    }
-                }
-            }
-        },
         async (request: FastifyRequest<RegisterBody>, reply: FastifyReply) => {
             try {
-                const { email, password, name } = request.body
+                // Validate request body with Zod
+                const validatedData = RegisterRequestSchema.parse(request.body)
+                const { email, password, name } = validatedData
 
                 // Check if user already exists
                 const existingUser = await db.findUserByEmail(email)
@@ -79,6 +85,10 @@ export async function setupAuthRoutes(fastify: FastifyInstance): Promise<void> {
 
                 return reply.code(201).send(response)
             } catch (error) {
+                if (error instanceof ZodError) {
+                    return handleValidationError(error, reply)
+                }
+
                 request.log.error(error, 'Registration error')
                 return reply.code(500).send({
                     statusCode: 500,
@@ -92,21 +102,11 @@ export async function setupAuthRoutes(fastify: FastifyInstance): Promise<void> {
     // Login endpoint
     fastify.post<LoginBody>(
         '/login',
-        {
-            schema: {
-                body: {
-                    type: 'object',
-                    required: ['email', 'password'],
-                    properties: {
-                        email: { type: 'string', format: 'email' },
-                        password: { type: 'string' }
-                    }
-                }
-            }
-        },
         async (request: FastifyRequest<LoginBody>, reply: FastifyReply) => {
             try {
-                const { email, password } = request.body
+                // Validate request body with Zod
+                const validatedData = LoginRequestSchema.parse(request.body)
+                const { email, password } = validatedData
 
                 // Find user
                 const user = await db.findUserByEmail(email)
@@ -145,6 +145,10 @@ export async function setupAuthRoutes(fastify: FastifyInstance): Promise<void> {
 
                 return reply.code(200).send(response)
             } catch (error) {
+                if (error instanceof ZodError) {
+                    return handleValidationError(error, reply)
+                }
+
                 request.log.error(error, 'Login error')
                 return reply.code(500).send({
                     statusCode: 500,
