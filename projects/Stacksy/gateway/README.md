@@ -101,38 +101,6 @@ Configure the gateway via environment variables:
 
 - `/api/tools/*` - Proxied to Tool Service (authentication required)
 
-## Project Structure
-
-```
-gateway/
-├── src/
-│   ├── config/          # Configuration management
-│   ├── plugins/         # Fastify plugins
-│   │   ├── jwt.ts       # JWT authentication
-│   │   ├── rateLimit.ts # Rate limiting
-│   │   └── security.ts  # CORS & Helmet
-│   ├── routes/          # Route handlers
-│   │   ├── health.ts    # Health check routes
-│   │   └── index.ts     # Route registration
-│   ├── types/           # TypeScript types
-│   ├── utils/           # Utilities
-│   │   └── proxy.ts     # Proxy handler
-│   ├── app.ts           # Application setup
-│   └── index.ts         # Entry point
-├── Dockerfile           # Docker configuration
-├── .env.example         # Example environment variables
-├── tsconfig.json        # TypeScript configuration
-└── package.json         # Dependencies
-```
-
-## Development
-
-### Type Checking
-
-```bash
-npm run type-check
-```
-
 ### Linting
 
 ```bash

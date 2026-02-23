@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
+import httpProxy from '@fastify/http-proxy'
 
 import { config } from '../common/config'
-import { createProxyHandler } from '../utils/proxy'
 
 interface ServiceRoute {
     prefix: string
@@ -24,15 +24,18 @@ const serviceRoutes: ServiceRoute[] = [
 
 export async function setupServiceRoutes(fastify: FastifyInstance): Promise<void> {
     for (const route of serviceRoutes) {
-        const options = route.requiresAuth ? { preHandler: fastify.authenticate } : {}
+        // Register proxy for each service route
+        await fastify.register(httpProxy, {
+            upstream: route.target,
+            prefix: route.prefix,
+            rewritePrefix: '',
+            preHandler: route.requiresAuth ? fastify.authenticate : undefined,
+            http2: false
+        })
 
-        fastify.all(
-            `${route.prefix}/*`,
-            options,
-            createProxyHandler({
-                target: route.target,
-                pathRewrite: (path) => path.replace(route.prefix, '')
-            })
+        fastify.log.info(
+            { prefix: route.prefix, target: route.target, requiresAuth: route.requiresAuth },
+            'Registered proxy route'
         )
     }
 }
