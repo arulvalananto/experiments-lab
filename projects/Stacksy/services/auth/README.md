@@ -144,3 +144,17 @@ npm start
 - JWT tokens expire after 1 hour by default
 - Change JWT_SECRET in production
 - Replace in-memory database with persistent storage
+
+## Pg Admin Connection
+
+To connect to the PostgreSQL database using pgAdmin, follow these steps:
+
+1. Open pgAdmin and click on "Add New Server".
+2. In the "General" tab, enter a name for your server (e.g., "Stacksy Auth DB").
+3. In the "Connection" tab, enter the following details:
+   - Host name/address: `localhost` or `host.docker.internal` (if running in Docker)
+   - Port: `5432` or the port you have configured for PostgreSQL
+   - Maintenance database: `postgres`
+   - Username: `postgres` (or your PostgreSQL username)
+   - Password: `postgres` (or your PostgreSQL password)
+4. Click "Save" to connect to the database. You should now see the server in pgAdmin and be able to manage your PostgreSQL database.
