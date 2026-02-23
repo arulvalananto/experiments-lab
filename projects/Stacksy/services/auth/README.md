@@ -71,7 +71,7 @@ Verify a JWT token.
 
 **Headers:**
 
-```
+```text
 Authorization: Bearer <token>
 ```
 
