@@ -158,3 +158,11 @@ To connect to the PostgreSQL database using pgAdmin, follow these steps:
    - Username: `postgres` (or your PostgreSQL username)
    - Password: `postgres` (or your PostgreSQL password)
 4. Click "Save" to connect to the database. You should now see the server in pgAdmin and be able to manage your PostgreSQL database.
+
+## Docker Setup
+
+To run the Database in a Docker container, follow these steps:
+
+```bash
+docker run --name stacksy -e POSTGRES_PASSWORD=your-password -e POSTGRES_DB=stacksy_auth -p 5433:5432 -d postgres:latest
+```
