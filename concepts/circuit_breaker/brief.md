@@ -101,3 +101,21 @@ If a dependency fails repeatedly:
 3. Try again later  
 
 That’s Circuit Breaker.
+
+## Manual Override
+
+In emergencies, you can manually open or close the circuit to control traffic flow.
+
+You can do this via:
+
+- Admin API (e.g., `/admin/circuit-breaker/open`, `/admin/circuit-breaker/close`)
+- Feature flag system
+  - Redis Toggle
+  - Environment flag
+  - Config server
+  - LaunchDarkly
+
+## Popular Libraries
+
+- Node.js: `opossum`
+- Python: `pybreaker`
