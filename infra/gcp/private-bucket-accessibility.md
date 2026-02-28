@@ -39,4 +39,7 @@ Images
 Static websites
 Large datasets
 
-YT VIDEO - [https://youtu.be/OL1ERzy3OMY](https://youtu.be/OL1ERzy3OMY)
+## References
+
+- Youtube video: [link here](https://youtu.be/OL1ERzy3OMY)
+- Blog:  [link here](https://medium.com/google-cloud/delivering-private-gcs-content-via-gcp-cloud-cdn-using-hmac-authentication-7d8c210e5f33)
