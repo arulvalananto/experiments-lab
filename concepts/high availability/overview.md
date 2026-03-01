@@ -27,3 +27,39 @@ Let’s illustrate it with an example:
 - They track the average order completion time (SLI).
 
 These targets get expressed in “nines of availability”.
+
+## Recovery Time Objective (RTO)
+
+How fast should the system recover from failure? How long can it be down for? Larger RTO means more downtime is acceptable; smaller RTO means less downtime. For example, an RTO of 10 minutes means that the system should be able to recover within 10 minutes of failing
+
+## Recovery Point Objective (RPO)
+
+To what point in time does the system recover? How much data loss is acceptable? Larger RPO means more data loss, smaller RPO means less. For example, an RPO of 5 minutes means 5 minutes of data gets lost.
+
+## MTTD (Mean Time to Detect)
+
+This is the mean time needed to notice a failure. How long does it usually take for the system or team to detect that something is wrong? Smaller MTTD means faster detection; larger MTTD means slower detection. For example, an MTTD of 30 seconds means issues get found half a minute after they occur on average
+
+## MTTR (Mean Time to Repair)
+
+This is the mean time needed to fix a failure. How long does the system usually take to recover? Larger MTTR means more time to recover, smaller MTTR means less. For example, an MTTR of 5 minutes means the failure will take 5 minutes to recover on average
+
+## MTBF (Mean Time Between Failures)
+
+This is the mean time between two failures. How often does the system usually fail? Larger MTBF means failures happen less often & vice-versa. For example, an MTBF of 1h means failures usually happen every hour
+
+## MTTF (Mean Time to Failure)
+
+This metric is designed for non-recoverable components. How long is the lifespan of this component? This metric differs from MTBF because it lacks a recovery component. The component is alive, and then it crashes without recovery. MTTF is the time between those two points.
+
+A larger MTTF means a component has a longer lifespan, and a smaller MTTF means a shorter one. For example, an MTTF of 3 years means a component usually lasts for 3 years before becoming unusable.
+
+## Formula for Availability
+
+Availability links uptime & downtime in one line:
+
+```text
+Availability = MTBF / (MTBF + MTTR)
+```
+
+If the system runs for 1000 hours before a 1-hour fix, uptime is 99.9%. Every extra nine costs more to achieve. Past “three nines,” you buy less outage and pay more in redundancy, automation, and testing.
