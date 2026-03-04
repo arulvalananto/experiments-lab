@@ -17,4 +17,15 @@ Hello World
 
 ```bash
 dotenvx set HELLO "encrypted"
+
+# will create .env.keys file and add the encrypted value of HELLO in the .env file
 ```
+
+## Run application with new environment variable
+
+```bash
+dotenvx run -- node index.js
+Hello encrypted
+```
+
+Refer to the [documentation](https://dotenvx.com/docs/quickstart) for more details and advanced usage.
