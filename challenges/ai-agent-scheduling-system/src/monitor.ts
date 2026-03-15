@@ -1,5 +1,5 @@
-import { db } from './db.js';
-import { Agent, Execution } from '../types/agent';
+import { db } from './db.ts';
+import type { Agent, Execution } from '../types/agent';
 
 export default async function (fastify: any, opts: any) {
     fastify.get('/status', async (request: any, reply: any) => {

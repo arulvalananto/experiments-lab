@@ -2,10 +2,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 import Fastify from 'fastify';
 
-import api from './api.js';
-import { init } from './db.js';
-import monitor from './monitor.js';
-import { start as schedulerStart } from './scheduler.js';
+import api from './api.ts';
+import { init } from './db.ts';
+import monitor from './monitor.ts';
+import { start as schedulerStart } from './scheduler.ts';
 init();
 
 const fastify = Fastify({ logger: true });

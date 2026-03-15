@@ -1,7 +1,8 @@
 import cron from 'node-cron';
-import { db } from './db.js';
-import { runAgent } from './agent.js';
-import { Agent } from '../types/agent';
+
+import { db } from './db.ts';
+import { runAgent } from './agent.ts';
+import type { Agent } from '../types/agent.ts';
 
 export function start(): void {
     db.all(

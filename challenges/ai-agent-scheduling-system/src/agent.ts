@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { db } from './db.js';
-import { Agent } from '../types/agent';
+
+import type { Agent } from '../types/agent';
+import { db } from './db.ts';
 
 export function getOllamaModel(): string {
     return process.env.OLLAMA_MODEL || 'llama2';

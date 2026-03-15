@@ -1,5 +1,5 @@
-import { db } from './db.js';
-import { Agent } from '../types/agent';
+import { db } from './db.ts';
+import type { Agent } from '../types/agent.ts';
 
 export default async function (fastify: any, opts: any) {
     // List agents
