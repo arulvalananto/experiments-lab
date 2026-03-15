@@ -1,6 +1,6 @@
-const { db } = require('./db');
+import { db } from './db.js';
 
-module.exports = async function (fastify, opts) {
+export default async function (fastify, opts) {
     // List agents
     fastify.get('/agents', async (request, reply) => {
         return new Promise((resolve, reject) => {
@@ -104,4 +104,4 @@ module.exports = async function (fastify, opts) {
             );
         });
     });
-};
+}

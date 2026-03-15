@@ -1,0 +1,22 @@
+{
+    "name": "ai-agent-scheduling-system",
+    "version": "1.0.0",
+    "description": "This project implements a cron-based AI agent scheduling system using Node.js, SQLite, Fastify, and Ollama (model configurable via environment variable).",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "module",
+    "dependencies": {
+        "axios": "^1.13.6",
+        "dotenv": "^17.3.1",
+        "fastify": "^5.8.2",
+        "node-cron": "^4.2.1",
+        "nodemailer": "^8.0.2",
+        "sqlite3": "^6.0.1"
+    }
+}

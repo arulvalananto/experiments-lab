@@ -1,11 +1,11 @@
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const Fastify = require('fastify');
-const scheduler = require('./scheduler');
-const api = require('./api');
-const monitor = require('./monitor');
-const { init } = require('./db');
+import Fastify from 'fastify';
+import { start as schedulerStart } from './scheduler.js';
+import api from './api.js';
+import monitor from './monitor.js';
+import { init } from './db.js';
 init();
 
 const fastify = Fastify({ logger: true });
@@ -15,7 +15,7 @@ fastify.register(api);
 fastify.register(monitor);
 
 // Start scheduler
-scheduler.start();
+schedulerStart();
 
 const PORT = process.env.PORT || 3000;
 fastify.listen({ port: PORT, host: '0.0.0.0' }, (err, address) => {

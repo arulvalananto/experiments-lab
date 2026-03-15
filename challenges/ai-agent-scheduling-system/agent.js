@@ -1,11 +1,11 @@
-const fetch = require('node-fetch');
-const { db } = require('./db');
+import axios from 'axios';
+import { db } from './db.js';
 
-function getOllamaModel() {
+export function getOllamaModel() {
     return process.env.OLLAMA_MODEL || 'llama2';
 }
 
-async function runAgent(agent, input = {}) {
+export async function runAgent(agent, input = {}) {
     const model = getOllamaModel();
     const prompt = agent.task;
     const systemPrompt = agent.system_prompt || '';
@@ -24,13 +24,10 @@ async function runAgent(agent, input = {}) {
     const startedAt = new Date();
 
     try {
-        const res = await fetch(url, {
-            method: 'POST',
+        const res = await axios.post(url, body, {
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
         });
-        const data = await res.json();
-        response = data.response || '';
+        response = res.data.response || '';
     } catch (err) {
         status = 'failed';
         error = err.message;
@@ -64,7 +61,4 @@ async function runAgent(agent, input = {}) {
     };
 }
 
-module.exports = {
-    runAgent,
-    getOllamaModel,
-};
+// No module.exports, ES module exports used above

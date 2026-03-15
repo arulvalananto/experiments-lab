@@ -1,8 +1,8 @@
-const cron = require('node-cron');
-const { db } = require('./db');
-const { runAgent } = require('./agent');
+import cron from 'node-cron';
+import { db } from './db.js';
+import { runAgent } from './agent.js';
 
-function start() {
+export function start() {
     db.all('SELECT * FROM agents WHERE enabled = 1', (err, agents) => {
         if (err) return;
         agents.forEach((agent) => {
@@ -12,7 +12,3 @@ function start() {
         });
     });
 }
-
-module.exports = {
-    start,
-};
