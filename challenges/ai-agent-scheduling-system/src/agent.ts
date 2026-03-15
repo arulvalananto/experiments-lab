@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import type { Agent } from '../types/agent';
+import type { Agent } from './types/agent.ts';
 import { db } from './db.ts';
 
 export function getOllamaModel(): string {
