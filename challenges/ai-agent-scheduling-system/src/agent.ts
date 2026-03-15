@@ -1,12 +1,21 @@
 import axios from 'axios';
-
 import { db } from './db.js';
+import { Agent } from '../types/agent';
 
-export function getOllamaModel() {
+export function getOllamaModel(): string {
     return process.env.OLLAMA_MODEL || 'llama2';
 }
 
-export async function runAgent(agent, input = {}) {
+export async function runAgent(
+    agent: Agent,
+    input: Record<string, any> = {},
+): Promise<{
+    agent_name: string;
+    timestamp: string;
+    status: string;
+    response: string;
+    error: string;
+}> {
     const model = getOllamaModel();
     const prompt = agent.task;
     const systemPrompt = agent.system_prompt || '';
@@ -29,13 +38,13 @@ export async function runAgent(agent, input = {}) {
             headers: { 'Content-Type': 'application/json' },
         });
         response = res.data.response || '';
-    } catch (err) {
+    } catch (err: any) {
         status = 'failed';
         error = err.message;
     }
 
     const finishedAt = new Date();
-    const duration = finishedAt - startedAt;
+    const duration = finishedAt.getTime() - startedAt.getTime();
 
     // Save execution history
     db.run(
@@ -61,5 +70,3 @@ export async function runAgent(agent, input = {}) {
         error,
     };
 }
-
-// No module.exports, ES module exports used above

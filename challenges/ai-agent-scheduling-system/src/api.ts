@@ -1,18 +1,22 @@
 import { db } from './db.js';
+import { Agent } from '../types/agent';
 
-export default async function (fastify, opts) {
+export default async function (fastify: any, opts: any) {
     // List agents
-    fastify.get('/agents', async (request, reply) => {
+    fastify.get('/agents', async (request: any, reply: any) => {
         return new Promise((resolve, reject) => {
-            db.all('SELECT * FROM agents', (err, rows) => {
-                if (err) reject(err);
-                else resolve(rows);
-            });
+            db.all(
+                'SELECT * FROM agents',
+                (err: Error | null, rows: Agent[]) => {
+                    if (err) reject(err);
+                    else resolve(rows);
+                },
+            );
         });
     });
 
     // Create agent
-    fastify.post('/agents', async (request, reply) => {
+    fastify.post('/agents', async (request: any, reply: any) => {
         const {
             name,
             task,
@@ -36,7 +40,7 @@ export default async function (fastify, opts) {
                     timeout,
                     max_retries,
                 ],
-                function (err) {
+                function (err: Error | null) {
                     if (err) reject(err);
                     else resolve({ id: this.lastID });
                 },
@@ -45,7 +49,7 @@ export default async function (fastify, opts) {
     });
 
     // Edit agent
-    fastify.put('/agents/:id', async (request, reply) => {
+    fastify.put('/agents/:id', async (request: any, reply: any) => {
         const {
             name,
             task,
@@ -59,7 +63,7 @@ export default async function (fastify, opts) {
         const { id } = request.params;
         return new Promise((resolve, reject) => {
             db.run(
-                `UPDATE agents SET name=?, task=?, system_prompt=?, cron=?, email=?, enabled=?, timeout=?, max_retries=? WHERE id=?`,
+                `UPDATE agents SET name = ?, task = ?, system_prompt = ?, cron = ?, email = ?, enabled = ?, timeout = ?, max_retries = ? WHERE id = ?`,
                 [
                     name,
                     task,
@@ -71,35 +75,9 @@ export default async function (fastify, opts) {
                     max_retries,
                     id,
                 ],
-                function (err) {
+                function (err: Error | null) {
                     if (err) reject(err);
-                    else resolve({ updated: this.changes });
-                },
-            );
-        });
-    });
-
-    // Delete agent
-    fastify.delete('/agents/:id', async (request, reply) => {
-        const { id } = request.params;
-        return new Promise((resolve, reject) => {
-            db.run(`DELETE FROM agents WHERE id=?`, [id], function (err) {
-                if (err) reject(err);
-                else resolve({ deleted: this.changes });
-            });
-        });
-    });
-
-    // Get agent execution history
-    fastify.get('/agents/:id/history', async (request, reply) => {
-        const { id } = request.params;
-        return new Promise((resolve, reject) => {
-            db.all(
-                `SELECT * FROM executions WHERE agent_id=? ORDER BY started_at DESC LIMIT 100`,
-                [id],
-                (err, rows) => {
-                    if (err) reject(err);
-                    else resolve(rows);
+                    else resolve({ changes: this.changes });
                 },
             );
         });
