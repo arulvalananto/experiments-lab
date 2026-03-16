@@ -1,0 +1,28 @@
+info:
+  name: Create Scheduler Agent
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{BASE_URL}}/agents"
+  body:
+    type: json
+    data: |-
+      {
+        "name": "Test Agent",
+        "task": "Immediate test",
+        "system_prompt": "Run now.",
+        "cron": "* * * * * *",
+        "email": "test@example.com",
+        "enabled": true,
+        "timeout": 10,
+        "max_retries": 1
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
