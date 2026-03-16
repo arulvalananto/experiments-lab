@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+import { sendEmail } from './email.ts';
 import type { Agent } from './types/agent.ts';
 import { db } from './db.ts';
 
@@ -62,6 +62,20 @@ export async function runAgent(
             duration,
         ],
     );
+
+    // Send email if successful and agent.email exists
+    if (status === 'success' && agent.email) {
+        try {
+            await sendEmail(
+                agent.email,
+                `Agent '${agent.name}' Execution Result`,
+                `<p>Task: ${agent.task}</p><p>Result: ${response}</p>`,
+            );
+            console.log(`Email sent to ${agent.email}`);
+        } catch (emailErr) {
+            console.error(`Failed to send email to ${agent.email}:`, emailErr);
+        }
+    }
 
     return {
         agent_name: agent.name,

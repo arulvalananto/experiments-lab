@@ -13,8 +13,8 @@ http:
         "name": "Test Agent",
         "task": "Immediate test",
         "system_prompt": "Run now.",
-        "cron": "* * * * * *",
-        "email": "test@example.com",
+        "cron": "* * * * *",
+        "email": "valananto134@gmail.com",
         "enabled": true,
         "timeout": 10,
         "max_retries": 1
