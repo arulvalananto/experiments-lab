@@ -6,4 +6,4 @@ dist
 
 tsconfig.tsbuildinfo
 
-agents-db
+src/*.db

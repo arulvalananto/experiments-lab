@@ -11,13 +11,13 @@ const transporter = nodemailer.createTransport({
 export async function sendEmail(
     to: string,
     subject: string,
-    html: string,
+    message: string,
 ): Promise<any> {
     const mailOptions = {
         from: process.env.SMTP_USER,
         to,
         subject,
-        html,
+        text: message,
     };
     return transporter.sendMail(mailOptions);
 }

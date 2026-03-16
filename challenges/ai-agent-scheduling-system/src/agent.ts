@@ -69,7 +69,7 @@ export async function runAgent(
             await sendEmail(
                 agent.email,
                 `Agent '${agent.name}' Execution Result`,
-                `<p>Task: ${agent.task}</p><p>Result: ${response}</p>`,
+                `Task: ${agent.task}\nResult: ${response}`,
             );
             console.log(`Email sent to ${agent.email}`);
         } catch (emailErr) {
