@@ -1,7 +1,8 @@
 import axios from 'axios';
+
+import { db } from './db.ts';
 import { sendEmail } from './email.ts';
 import type { Agent } from './types/agent.ts';
-import { db } from './db.ts';
 
 export function getOllamaModel(): string {
     return process.env.OLLAMA_MODEL || 'llama2';
