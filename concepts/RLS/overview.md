@@ -180,5 +180,3 @@ Test manually:
 3. Always secure INSERT/UPDATE with WITH CHECK
 4. Keep policies simple and indexed
 5. Always test with real user context
-
-## 🧠 RLS is powerful but requires discipline. Get it right, and your data is safe by default
