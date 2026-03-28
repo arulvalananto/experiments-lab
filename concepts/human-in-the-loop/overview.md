@@ -1,4 +1,4 @@
-# 🧠 LangGraph Human-in-the-loop (Quick Overview)
+# 🧠 LangGraph Human-in-the-loop Overview
 
 ## 🚀 One-line idea
 
