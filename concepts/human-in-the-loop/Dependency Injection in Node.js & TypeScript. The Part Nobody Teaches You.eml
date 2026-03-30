@@ -1,0 +1,2761 @@
+Delivered-To: valananto134@gmail.com
+Received: by 2002:a05:7108:524c:b0:559:c99:cfd2 with SMTP id g12csp799177gdt;
+        Sun, 29 Mar 2026 05:19:52 -0700 (PDT)
+X-Received: by 2002:a17:902:db08:b0:2ae:cb0e:fd59 with SMTP id d9443c01a7336-2b0cdc0fc5emr89570835ad.8.1774786792439;
+        Sun, 29 Mar 2026 05:19:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1774786792; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ap7/6DszuAuIvr5OwXkchYj8ahuxfpNm7JjOjFEA+aBrwjdq8RZ5AR3C8inyPYvxA0
+         zJ/CkThShiLoXBDfYP4D/YPo5zZUvTmZptL5sHj0CX8x6JfYEVFIk23csV97jcKbWJCV
+         uSOF1udurMfqL3jJnOUWTZPHw11XwkYJjL33nK2tAeE7ghmHulWxVF8fUok2MuGQC1Ox
+         mSKFRzMcV62/HNlq6R9GEAR765duJTMyYod2lO97QZWjI8/ZtY5KPl+vv0F/nswtjDGY
+         +MuVYMR/xP24M/eiTvyuIzNG1jXoW+G6m+1h3vidb6SGp20UitzRVLN/VEwfeo4At83T
+         8vGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe-post:list-unsubscribe:list-post:list-id
+         :list-archive:list-url:list-owner:reply-to:in-reply-to:references
+         :sender:feedback-id:date:message-id:to:from:subject:mime-version
+         :dkim-signature:dkim-signature;
+        bh=peMm48rLPQ4J92+E/416CFA+6pLBzMAHGoj8IiA+A/Y=;
+        fh=o8d3RScdmdQKKvzAhAuRGgEuVNiTkMrSsTAPJyvSQgc=;
+        b=IeSgzwHqhOPbX3tphCX0Rk1Ayi639M7YE6iFJvjPW1R1cqYrtxRTBCKti16yxpqRpn
+         1hYNOmDrCcubEga2Cs0Z6lJXqKlSFIRz3zpTbmgl/2s1m0VegPgC0DgFmynxq826uWOu
+         zNBWos/yOP06mKdjJb1R1Y19RquXIA8pDliW+OXAqKTDpwumroIJSjB6HoSmbaP/Pzu9
+         LzQkqGr5iBiTKwb/gXB5nDF1NNMjy9BDUjc/gbRW5GO+/jRh8dd2iZCIoxg7Dgfmqim2
+         4CevMn77PQlySoNllx2UhL7vHDUwmLr8ikQt59JJpWx9aG9k3MMcU81AgS3WPXOuxwLi
+         t0SQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mg-d0.substack.com header.s=mailo header.b=XseMz5X+;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=rhjmqJkO;
+       spf=pass (google.com: domain of bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com designates 161.38.202.170 as permitted sender) smtp.mailfrom="bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=substack.com
+Return-Path: <bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com>
+Received: from mg-202-170.substack.com (mg-202-170.substack.com. [161.38.202.170])
+        by mx.google.com with UTF8SMTPS id d9443c01a7336-2b24273ddf9si114790595ad.126.2026.03.29.05.19.51
+        for <valananto134@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 29 Mar 2026 05:19:52 -0700 (PDT)
+Received-SPF: pass (google.com: domain of bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com designates 161.38.202.170 as permitted sender) client-ip=161.38.202.170;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mg-d0.substack.com header.s=mailo header.b=XseMz5X+;
+       dkim=pass header.i=@mailgun.org header.s=mg header.b=rhjmqJkO;
+       spf=pass (google.com: domain of bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com designates 161.38.202.170 as permitted sender) smtp.mailfrom="bounce+60fb29.63af5d-valananto134=gmail.com@mg-d0.substack.com";
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=substack.com
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mg-d0.substack.com; q=dns/txt; s=mailo; t=1774786791; x=1774793991;
+ h=List-Unsubscribe-Post: List-Unsubscribe: List-Post: List-Id: List-Archive: List-Owner: Reply-To: In-Reply-To: References: Sender: Sender: Date: Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: X-Feedback-Id;
+ bh=peMm48rLPQ4J92+E/416CFA+6pLBzMAHGoj8IiA+A/Y=;
+ b=XseMz5X+9SYFCDHEHf4g9sEIc37DWiqnvf08pScIEzQPB4NbRa/XUJ24vMlP0V+Dn6UzUhETFZQEuljwznKeEficEWsbtXWSLe6cP8oLG8PyW2ytSNAl/8ziFIQbJrCJ7rMdXMdsyUP4XmTk6l0KlObvwUxY6a+mnrg9VZxEBKs=
+DKIM-Signature: a=rsa-sha256; v=1; c=relaxed/relaxed; d=mailgun.org; q=dns/txt; s=mg; t=1774786791; x=1774793991;
+ h=List-Unsubscribe-Post: List-Unsubscribe: List-Post: List-Id: List-Archive: List-Owner: Reply-To: In-Reply-To: References: Sender: Sender: Date: Message-Id: To: To: From: From: Subject: Subject: Content-Type: Mime-Version: X-Feedback-Id;
+ bh=peMm48rLPQ4J92+E/416CFA+6pLBzMAHGoj8IiA+A/Y=;
+ b=rhjmqJkOxfT1cizCpnlK8zedVF3bGgJeD0jRAUrNqUHvdzfz4ACGr+VWptp/9v/ex8fennbdAMQUnZ45js1FzAfmC7OMpla3i/HworMZ9rrelTHwQLCH6rVBG1lB5RbMHNVFb+tIxjVFFtX/JSZg+5QgCCrQJQog0GRPdX5H0K0=
+X-Mailgun-Sid: WyIyODBjMCIsInZhbGFuYW50bzEzNEBnbWFpbC5jb20iLCI2M2FmNWQiXQ==
+X-Feedback-Id: postmaster@mg-d0.substack.com:post:6148c7d8a45790427cda307f:mailgun
+Received: by bb77946ecc7544c7dc3b509fc17c9a0562fdc373d9c02147d54773f5260297ab with HTTP
+ id 69c918e73046214517874785; Sun, 29 Mar 2026 12:19:50 GMT
+X-Mailgun-Sending-Ip: 161.38.202.170
+X-Mailgun-Batch-Id: 69c918e63b2d605dcdcbcee4
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="afd4b25954b146534194bda840c9e35e6fb12a6ec1939250fbd5e189d133"
+Subject: Dependency Injection in Node.js & TypeScript. The Part Nobody Teaches You
+From: Petar Ivanov <petarivanovv9@substack.com>
+To: valananto134@gmail.com
+X-Mailgun-Tag: post
+X-Mailgun-Track-Clicks: false
+Message-Id: <20260329121937.3.c8152dcd3e66fa7c@mg-d0.substack.com>
+Date: Sun, 29 Mar 2026 12:19:37 +0000
+Feedback-Id: post-191737097:cat-post:pub-1508738:substack
+Sender: Petar Ivanov <petarivanovv9@substack.com>
+References: <post-191737097@substack.com>
+In-Reply-To: <post-191737097@substack.com>
+Reply-To: Petar Ivanov
+ <reply+365lah&13ejuv&&11933efec207ce109f195e2c10b69b22f223bf7b28f7b78e15fc48f66f31675d@mg1.substack.com>
+List-Owner: <mailto:petarivanovv9@substack.com>
+List-Url: <https://thetshaped.dev/>
+List-Archive: <https://thetshaped.dev/archive>
+List-Id: <petarivanovv9.substack.com>
+List-Post: <https://thetshaped.dev/p/dependency-injection-in-nodejs-and-typescript-dependency-inversion-part-no-body-teaches-you>
+List-Unsubscribe: <https://thetshaped.dev/action/disable_email/disable?token=eyJ1c2VyX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3MDk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cCI6MTgwNjMyMjc5MCwiaXNzIjoicHViLTE1MDg3MzgiLCJzdWIiOiJkaXNhYmxlX2VtYWlsIn0.VmO2fB4Mb__k-phQjv2uMdr4e4Mb4IXjr9OMnz3pQU8&all_sections=true>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+X-Mailgun-Variables: {"category": "post", "email_generated_at": "1774786790539", "is_freemail":
+ "true", "post_audience": "everyone", "post_id": "191737097", "post_type":
+ "newsletter", "pub_community_enabled": "true", "publication_id": "1508738",
+ "subdomain": "petarivanovv9", "user_id": "66183943"}
+
+--afd4b25954b146534194bda840c9e35e6fb12a6ec1939250fbd5e189d133
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+View this post on the web at https://thetshaped.dev/p/dependency-injection-=
+in-nodejs-and-typescript-dependency-inversion-part-no-body-teaches-you
+
+This post outlines a common Node.js pattern and how to solve it.
+Share this post [ https://substack.com/redirect/3c759b22-8eae-4972-8fac-e95=
+dfd8d1f11?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS=
+0w ] & I=E2=80=99ll send you some rewards for the referrals.
+In the Java/C# world, DI containers are a religion.
+In Node.js, most developers just import modules directly, until testing bec=
+omes a nightmare and swapping implementations means rewriting half the app.
+You don=E2=80=99t need dependency injection containers like InversifyJS [ h=
+ttps://substack.com/redirect/92431213-07a1-46d6-a788-4675ac1acbf8?j=3DeyJ1I=
+joiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w ] or tsyringe [ =
+https://substack.com/redirect/05dcb0df-f114-446f-815e-a54e184701de?j=3DeyJ1=
+IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w ].
+Here=E2=80=99s how to do dependency injection with plain TypeScript, and wh=
+y it=E2=80=99ll make your code instantly more testable.
+Dependency Injection vs. Dependency Inversion
+These terms get used interchangeably. But they're not the same.
+Dependency Injection (DI) is a technique: instead of a class/function creat=
+ing its own dependencies, you pass them in from the outside.
+Dependency Inversion is a principle (the =E2=80=9CD=E2=80=9D in SOLID): hig=
+h-level modules shouldn=E2=80=99t depend on low-level modules. Both should =
+depend on abstractions.
+Dependency Injection is how you implement Dependency Inversion.
+But you can do DI without inverting anything. This is the place where most =
+Node.js developers stop.
+// Direct dependency =E2=80=94 no injection
+import { db } from './database';
+
+export async function getUser(id: string) {
+  return db.query('SELECT * FROM users WHERE id =3D $1', [id]);
+}
+This works. But you can=E2=80=99t test getUser without a real database.
+You can=E2=80=99t swap PostgreSQL for an in-memory store.
+And if database.ts has side effects on import, every test file that touches=
+ getUser pays that cost.
+The Node.js Anti-Pattern: Import Everything Directly
+Here=E2=80=99s what most Express apps look like:
+// userService.ts
+import { knex } from =E2=80=98../lib/database=E2=80=99;
+import { sendEmail } from =E2=80=98../lib/email=E2=80=99;
+import { logger } from =E2=80=98../lib/logger=E2=80=99;
+
+export async function createUser(data: CreateUserInput) {
+  const [user] =3D await knex(=E2=80=99users=E2=80=99).insert(data).returni=
+ng(=E2=80=99*=E2=80=99);
+  await sendEmail(user.email, =E2=80=98Welcome!=E2=80=99);
+  logger.info(`User created: ${user.id}`);
+  return user;
+}
+There are three hardcoded dependencies. And to test this function, you need=
+:
+A running database (or mock Knex globally)
+An email service (or mock the module)
+A logger (or suppress output)
+Module mocking (jest.mock, vi.mock) is the usual escape hatch, but it=E2=80=
+=99s brittle because we=E2=80=99re mocking import paths, not the actual con=
+tracts.
+For example, if you rename a file, your mocks break silently.
+Module mocking is a code smell.
+It tells you your code has hidden dependencies that should be explicit.
+What Dependency Injection Actually Solves
+Before we continue further, let=E2=80=99s be clear about what we=E2=80=99re=
+ fixing:
+Testability. When a module imports its dependencies directly, you=E2=80=99r=
+e forced into module-level mocking (jest.mock(), vi.mock()) to test it. The=
+se mocks are fragile, magical, and break when you rename a file. With DI, y=
+ou pass plain objects, and no mocking framework is needed.
+Swappability. Imagine you have to switch from Knex to Drizzle, or from Send=
+Grid to AWS SES. When dependencies are injected, you swap the implementatio=
+n in one place. When they=E2=80=99re imported, you touch every file.
+Explicit dependencies. A function=E2=80=99s signature should tell you what =
+it needs. If createUser secretly depends on a database, an email client, an=
+d a logger, but its signature only shows data: CreateUserDTO, that=E2=80=99=
+s a lie. DI makes dependencies visible.
+Separation of concerns. Your business logic shouldn=E2=80=99t know (or care=
+) whether it=E2=80=99s talking to Postgres or SQLite, SendGrid or a local S=
+MTP server. DI enforces that boundary naturally.
+Now, let=E2=80=99s see how to do dependency injection in Node.js without an=
+y frameworks.
+Subscribe to get practical tips on React.js, Node.js, and Software Architec=
+ture delivered straight to your inbox:
+Step 1: Constructor Injection (Manual DI)
+The simplest fix: accept dependencies as parameters.
+// userService.ts
+interface UserRepository {
+  create(data: CreateUserInput): Promise<User>;
+}
+
+interface EmailService {
+  send(to: string, subject: string): Promise<void>;
+}
+
+interface Logger {
+  info(message: string): void;
+}
+
+export function createUserService(
+  repo: UserRepository,
+  email: EmailService,
+  logger: Logger
+) {
+  return {
+    async createUser(data: CreateUserInput) {
+      const user =3D await repo.create(data);
+      await email.send(user.email, =E2=80=98Welcome!=E2=80=99);
+      logger.info(`User created: ${user.id}`);
+      return user;
+    },
+  };
+}
+Before and After DI: How You Use the Code
+The real difference isn=E2=80=99t just how the service is defined, but how =
+it=E2=80=99s consumed.
+Before DI, we use direct imports (hidden dependencies):
+// Somewhere in your route handler or controller
+import { createUser } from =E2=80=98./userService=E2=80=99;
+
+// Just call it. What does it need? Who knows.
+// Knex? Email service? Logger? You can=E2=80=99t tell from here.
+const user =3D await createUser({ email: =E2=80=98alice@example.com=E2=80=
+=99, name: =E2=80=98Alice=E2=80=99 });
+Dependencies are invisible.
+The function looks simple, but it=E2=80=99s secretly reaching into the modu=
+le graph for a database client, an email service, and a logger.
+You only discover this when something breaks or when you try to test it.
+After DI, we use Factory + DI (explicit dependencies):
+// In your composition root or setup code
+import { createUserService } from =E2=80=98./userService=E2=80=99;
+import { createUserRepo } from =E2=80=98./repos/userRepo=E2=80=99;
+import { createEmailService } from =E2=80=98./infra/email=E2=80=99;
+import { createLogger } from =E2=80=98./infra/logger=E2=80=99;
+
+// Dependencies are explicit at creation time
+const userService =3D createUserService(
+  createUserRepo(knex),
+  createEmailService({ apiKey: process.env.SENDGRID_KEY! }),
+  createLogger({ level: =E2=80=98info=E2=80=99 })
+);
+
+// Now use it =E2=80=94 the service is fully configured
+const user =3D await userService.createUser({ email: =E2=80=98alice@example=
+=2Ecom=E2=80=99, name: =E2=80=98Alice=E2=80=99 });
+Yes, the setup is more verbose. But now you can see every dependency. The f=
+unction signature tells the truth.
+When you read the composition root, you know exactly what each service need=
+s, no grepping through imports, no surprises.
+Step 2: The Composition Root=20
+If every service takes its dependencies as arguments, where do you actually=
+ wire everything together?
+At the composition root, the entry point of your application. This is the o=
+ne place that knows about all the concrete implementations.
+// composition-root.ts
+import Knex from =E2=80=98knex=E2=80=99;
+import { createKnexDatabase } from =E2=80=98./infra/knexDatabase=E2=80=99;
+import { createUserService } from =E2=80=98./services/userService=E2=80=99;
+import { createOrderService } from =E2=80=98./services/orderService=E2=80=
+=99;
+import { createEmailService } from =E2=80=98./infra/email=E2=80=99;
+import { createLogger } from =E2=80=98./infra/logger=E2=80=99;
+
+export function createApp() {
+  // Infrastructure
+  const knex =3D Knex({
+    client: =E2=80=98pg=E2=80=99,
+    connection: process.env.DATABASE_URL,
+  });
+  const db =3D createKnexDatabase(knex);
+  const email =3D createEmailService({ apiKey: process.env.SENDGRID_KEY! })=
+;
+  const logger =3D createLogger({ level: =E2=80=98info=E2=80=99 });
+
+  // Repositories
+  const userRepo =3D createUserRepo(db);
+  const orderRepo =3D createOrderRepo(db);
+
+  // Services
+  const userService =3D createUserService(userRepo, email, logger);
+  const orderService =3D createOrderService(orderRepo, userService, logger)=
+;
+
+  return { userService, orderService, knex };
+}
+// server.ts
+import express from =E2=80=98express=E2=80=99;
+import { createApp } from =E2=80=98./composition-root=E2=80=99;
+
+const app =3D express();
+const { userService, orderService } =3D createApp();
+
+app.post(=E2=80=99/users=E2=80=99, async (req, res) =3D> {
+  const user =3D await userService.createUser(req.body);
+  res.status(201).json(user);
+});
+Everything flows downward from one place. No global singletons. No magical =
+auto-wiring. Just functions calling functions.
+When to Reach for a Container?
+Manual DI works beautifully for small-to-medium apps.
+But when you have 20-30+ services with complex dependency graphs, the compo=
+sition root becomes hard to read and follow.
+I=E2=80=99ve personally used tsyringe [ https://substack.com/redirect/05dcb=
+0df-f114-446f-815e-a54e184701de?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWgu=
+YKhmiXfEGLhcrUpphZJdWS0w ]. It=E2=80=99s a lightweight container, easy to u=
+se and configure.
+tsyringe [ https://substack.com/redirect/05dcb0df-f114-446f-815e-a54e184701=
+de?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w ] us=
+es decorators and reflect-metadata to inspect constructor parameters and au=
+to-wire dependencies.
+It supports singleton, transient, and scoped lifecycles, with strong TypeSc=
+ript support.
+To be honest, I didn=E2=80=99t have any trouble with it.
+Here is a simple example:
+import =E2=80=98reflect-metadata=E2=80=99;
+import { container, injectable, inject, singleton } from =E2=80=98tsyringe=
+=E2=80=99;
+import Knex from =E2=80=98knex=E2=80=99;
+
+@singleton()
+class KnexDatabase implements Database {
+  private knex =3D Knex({ client: =E2=80=98pg=E2=80=99, connection: process=
+=2Eenv.DATABASE_URL });
+
+  users =3D {
+    create: async (data: CreateUserInput) =3D> {
+      const [user] =3D await this.knex(=E2=80=99users=E2=80=99).insert(data=
+).returning(=E2=80=99*=E2=80=99);
+      return user;
+    },
+    findById: async (id: string) =3D> {
+      return this.knex(=E2=80=99users=E2=80=99).where({ id }).first() ?? nu=
+ll;
+    },
+  };
+}
+
+container.register(=E2=80=99Database=E2=80=99, { useClass: KnexDatabase });
+
+@injectable()
+class UserService {
+  constructor(@inject(=E2=80=99Database=E2=80=99) private db: Database) {}
+
+  async createUser(data: CreateUserInput) {
+    return this.db.users.create(data);
+  }
+}
+
+// Resolve with all dependencies auto-wired
+const userService =3D container.resolve(UserService);
+If you=E2=80=99re not sure whether you need a container, start simple witho=
+ut an additional framework.
+You can easily add it later if needed.
+The Testing Payoff
+Here=E2=80=99s why all this matters. Let=E2=80=99s compare full test files =
+side by side.
+Before: Testing with Module Mocking
+import { describe, it, expect, vi, beforeEach } from =E2=80=98vitest=E2=80=
+=99;
+
+// Mock every dependency by file path =E2=80=94 get any path wrong and it s=
+ilently breaks
+vi.mock(=E2=80=99../lib/database=E2=80=99, () =3D> ({
+  knex: vi.fn().mockReturnValue({
+    insert: vi.fn().mockReturnValue({
+      returning: vi.fn().mockResolvedValue([{ id: =E2=80=981=E2=80=99, emai=
+l: =E2=80=98test@example.com=E2=80=99 }]),
+    }),
+  }),
+}));
+
+vi.mock(=E2=80=99../lib/email=E2=80=99, () =3D> ({
+  sendEmail: vi.fn(),
+}));
+
+vi.mock(=E2=80=99../lib/logger=E2=80=99, () =3D> ({
+  logger: {
+    info: vi.fn(),
+  },
+}));
+
+// Now import the function AFTER the mocks (order matters!)
+import { createUser } from =E2=80=98./userService=E2=80=99;
+import { knex } from =E2=80=98../lib/database=E2=80=99;
+import { sendEmail } from =E2=80=98../lib/email=E2=80=99;
+
+describe(=E2=80=99createUser=E2=80=99, () =3D> {
+  beforeEach(() =3D> {
+    vi.clearAllMocks();
+  });
+
+  it(=E2=80=99creates a user and sends a welcome email=E2=80=99, async () =
+=3D> {
+    const user =3D await createUser({ email: =E2=80=98test@example.com=E2=
+=80=99, name: =E2=80=98Test=E2=80=99 });
+
+    expect(user.id).toBe(=E2=80=991=E2=80=99);
+    expect(sendEmail).toHaveBeenCalledWith(=E2=80=99test@example.com=E2=80=
+=99, =E2=80=98Welcome!=E2=80=99);
+  });
+});
+Problems everywhere:
+Path-coupled: rename ../lib/database to ../db/database and the mock breaks =
+silently =E2=80=94 the test passes but uses the real module
+Import order matters: vi.mock calls are hoisted, but if you get it wrong, d=
+ebugging is miserable
+Type-unsafe: you=E2=80=99re casting to any because the mock system doesn=E2=
+=80=99t know your interfaces
+Framework-locked: switch from Vitest to Node=E2=80=99s built-in test runner=
+? Rewrite every mock
+After: Testing with DI
+import { describe, it, expect } from =E2=80=98vitest=E2=80=99;
+import { createUserService } from =E2=80=98./userService=E2=80=99;
+
+describe(=E2=80=99createUser=E2=80=99, () =3D> {
+  it(=E2=80=99creates a user and sends a welcome email=E2=80=99, async () =
+=3D> {
+    // Plain objects that satisfy the interface =E2=80=94 no mock framework=
+ needed
+    const fakeRepo =3D {
+      create: async (data: any) =3D> ({ id: =E2=80=981=E2=80=99, email: dat=
+a.email }),
+    };
+    const fakeEmail =3D {
+      send: async () =3D> {},
+    };
+    const fakeLogger =3D {
+      info: () =3D> {},
+    };
+
+    // Track calls manually if needed (or use vi.fn() =E2=80=94 your choice=
+, not a requirement)
+    const emailCalls: any[] =3D [];
+    fakeEmail.send =3D async (to: string, subject: string) =3D> {
+      emailCalls.push({ to, subject });
+    };
+
+    const service =3D createUserService(fakeRepo, fakeEmail, fakeLogger);
+    const user =3D await service.createUser({ email: =E2=80=98test@example.=
+com=E2=80=99, name: =E2=80=98Test=E2=80=99 });
+
+    expect(user.id).toBe(=E2=80=991=E2=80=99);
+    expect(emailCalls).toEqual([{ to: =E2=80=98test@example.com=E2=80=99, s=
+ubject: =E2=80=98Welcome!=E2=80=99 }]);
+  });
+
+  it(=E2=80=99logs user creation=E2=80=99, async () =3D> {
+    const logs: string[] =3D [];
+    const service =3D createUserService(
+      { create: async (data: any) =3D> ({ id: =E2=80=9842=E2=80=99, email: =
+data.email }) },
+      { send: async () =3D> {} },
+      { info: (msg: string) =3D> logs.push(msg) }
+    );
+
+    await service.createUser({ email: =E2=80=98test@example.com=E2=80=99, n=
+ame: =E2=80=98Test=E2=80=99 });
+
+    expect(logs).toEqual([=E2=80=99User created: 42=E2=80=99]);
+  });
+});
+The difference:
+No mocking framework required: plain objects that match the interface
+Type-safe: TypeScript checks your fakes against the real interfaces
+No import order tricks: just functions and objects
+Portable: works with Vitest, Jest, Node=E2=80=99s test runner, or even a pl=
+ain script
+Each test is self-contained: no shared mutable mock state leaks between tes=
+ts
+=F0=9F=93=8C Key Takeaways
+Dependency Injection isn=E2=80=99t a framework feature =E2=80=94 it=E2=80=
+=99s passing arguments to functions. You already know how to do it.
+Module mocking is a smell. If you need vi.mock() to test something, remembe=
+r that something has hidden dependencies.
+Start with manual DI. Factory functions + a composition root covers 90% of =
+Node.js apps.
+Graduate to a container (tsyringe) when your dependency graph gets complex.=
+ Not because it=E2=80=99s =E2=80=9Cproper=E2=80=9D, but because it saves ma=
+intenance.
+The real value is testability. DI makes unit testing trivial, integration t=
+esting focused, and your architecture honest about its dependencies.
+Subscribe to get practical tips on React.js, Node.js, and Software Architec=
+ture delivered straight to your inbox:
+Follow me on LinkedIn [ https://substack.com/redirect/33606237-3647-4daf-a2=
+3e-6cf3b8d78651?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpp=
+hZJdWS0w ] | Twitter(X) [ https://substack.com/redirect/d1495c92-e6cb-4098-=
+b762-8699a71749ca?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrU=
+pphZJdWS0w ] | Threads [ https://substack.com/redirect/ca0f719d-1438-4725-b=
+804-d9a6489df176?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUp=
+phZJdWS0w ]
+Thank you for supporting this newsletter.
+Consider sharing this post with your friends and get rewards.
+You are the best! =F0=9F=99=8F
+Press the Like button if you found this post helpful
+
+Unsubscribe https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV0c2hhcGV=
+kLmRldi9hY3Rpb24vZGlzYWJsZV9lbWFpbD90b2tlbj1leUoxYzJWeVgybGtJam8yTmpFNE16az=
+BNeXdpY0c5emRGOXBaQ0k2TVRreE56TTNNRGszTENKcFlYUWlPakUzTnpRM09EWTNPVEFzSW1WN=
+GNDSTZNVGd3TmpNeU1qYzVNQ3dpYVhOeklqb2ljSFZpTFRFMU1EZzNNemdpTENKemRXSWlPaUpr=
+YVhOaFlteGxYMlZ0WVdsc0luMC5WbU8yZkI0TWJfX2stcGhRanYydU1kcjRlNE1iNElYanI5T01=
+uejNwUVU4IiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0My=
+wiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoib=
+Gluay1yZWRpcmVjdCJ9.AT_EL8ZAgp6NjFFNlW48ZS1o_tDicEVwAMJOzscyQi4?
+--afd4b25954b146534194bda840c9e35e6fb12a6ec1939250fbd5e189d133
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<html style=3D"scrollbar-width: thin;scrollbar-color: rgb(219,219,219)rgb(2=
+55,255,255);"><head><meta charset=3D"utf-8"><title>Dependency Injection in =
+Node.js &amp; TypeScript. The Part Nobody Teaches You</title><style>
+@media (max-width: 1024px) {
+  .typography .pullquote-align-left,
+  .typography.editor .pullquote-align-left,
+  .typography .pullquote-align-right,
+  .typography.editor .pullquote-align-right,
+  .typography .pullquote-align-wide,
+  .typography.editor .pullquote-align-wide,
+  .typography .pullquote-align-center,
+  .typography.editor .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .typography .markup table.image-wrapper img,
+  .typography.editor .markup table.image-wrapper img,
+  .typography .markup table.kindle-wrapper img,
+  .typography.editor .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-left),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography:not(:has(#toc)) .captioned-image-container figure:has(> a.ima=
+ge2-offset-right),
+  .typography.editor:not(:has(#toc)) .captioned-image-container figure:has(=
+> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  .typography,
+  .typography.editor {
+    /* Disable offset on mobile/tablet */
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left),
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left.t=
+hefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left.thefp),
+  .typography .captioned-image-container figure:has(> a.image2-align-right.=
+thefp),
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right.thefp) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-offset-left)=
+,
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-left),
+  .typography .captioned-image-container figure:has(> a.image2-offset-right=
+),
+  .typography.editor .captioned-image-container figure:has(> a.image2-offse=
+t-right) {
+    margin: 1em auto;
+  }
+  .typography .captioned-image-container figure:has(> a.image2-align-left) =
+=2Eimage2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-left) .image2-inset,
+  .typography .captioned-image-container figure:has(> a.image2-align-right)=
+ .image2-inset,
+  .typography.editor .captioned-image-container figure:has(> a.image2-align=
+-right) .image2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  .typography .markup div.sponsorship-campaign-embed,
+  .typography.editor .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  .typography .markup div.sponsorship-campaign-embed:first-child,
+  .typography.editor .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.youtube-overlay,
+  .typography.editor .markup div.youtube-overlay,
+  .typography .markup div.vimeo-overlay,
+  .typography.editor .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .typography .markup div.tiktok-wrap,
+  .typography.editor .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.embedded-publication-wrap .embedded-publication.s=
+how-subscribe,
+  .typography.editor .markup div.embedded-publication-wrap .embedded-public=
+ation.show-subscribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup div.subscription-widget-wrap .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.subscription-widget-wrap-editor .subscription-wid=
+get.show-subscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.subscription-widget-wrap-editor .subscript=
+ion-widget.show-subscribe .subscription-widget-subscribe .button,
+  .typography .markup div.captioned-button-wrap .subscription-widget.show-s=
+ubscribe .subscription-widget-subscribe .button,
+  .typography.editor .markup div.captioned-button-wrap .subscription-widget=
+=2Eshow-subscribe .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .twitter-embed,
+  .typography.editor .markup .twitter-embed,
+  .typography .markup .tweet,
+  .typography.editor .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .twitter-embed .tweet-text,
+  .typography.editor .markup .twitter-embed .tweet-text,
+  .typography .markup .tweet .tweet-text,
+  .typography.editor .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .twitter-embed .tweet-photos-container.two,
+  .typography.editor .markup .twitter-embed .tweet-photos-container.two,
+  .typography .markup .tweet .tweet-photos-container.two,
+  .typography.editor .markup .tweet .tweet-photos-container.two,
+  .typography .markup .twitter-embed .tweet-photos-container.three,
+  .typography.editor .markup .twitter-embed .tweet-photos-container.three,
+  .typography .markup .tweet .tweet-photos-container.three,
+  .typography.editor .markup .tweet .tweet-photos-container.three,
+  .typography .markup .twitter-embed .tweet-photos-container.four,
+  .typography.editor .markup .twitter-embed .tweet-photos-container.four,
+  .typography .markup .tweet .tweet-photos-container.four,
+  .typography.editor .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .twitter-embed a.expanded-link .expanded-link-img,
+  .typography.editor .markup .twitter-embed a.expanded-link .expanded-link-=
+img,
+  .typography .markup .tweet a.expanded-link .expanded-link-img,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  .typography .markup .twitter-embed a.expanded-link .expanded-link-descrip=
+tion,
+  .typography.editor .markup .twitter-embed a.expanded-link .expanded-link-=
+description,
+  .typography .markup .tweet a.expanded-link .expanded-link-description,
+  .typography.editor .markup .tweet a.expanded-link .expanded-link-descript=
+ion {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  .typography .markup .apple-podcast-container,
+  .typography.editor .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed img.install-substack-app-=
+embed-img,
+  .typography.editor .markup .install-substack-app-embed img.install-substa=
+ck-app-embed-img {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-text,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-text {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  .typography .markup .install-substack-app-embed .install-substack-app-emb=
+ed-link,
+  .typography.editor .markup .install-substack-app-embed .install-substack-=
+app-embed-link {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container {
+    height: 38px;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.comment {
+    height: 38px;
+    line-height: 38px;
+    padding-right: 10px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container .separator {
+    display: block;
+    margin: 0;
+    height: 8px;
+    border-left: none;
+  }
+}
+@media screen and (max-width: 480px) {
+  .share-button-container a.share.first img {
+    padding-left: 0;
+  }
+}
+@media screen and (min-width: 481px) {
+  .share-button-container a.mobile {
+    display: none !important;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer {
+    padding: 36px;
+    height: 680px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .settings-add-pub-modal-wrapper .container .add-recommending-pub-modal-co=
+ntainer .footer {
+    position: absolute;
+    bottom: 36px;
+    margin: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .header-anchor-parent {
+    display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .post {
+    padding: 16px 0 0 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .post-label {
+    margin-top: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-header .meta-author-wrap.alternative-meta .meta-right-column =
+=2Epost-meta {
+    margin-top: 6px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .footer-facepile-container {
+    height: 64px;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.use-separators {
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .post-footer.next-prev {
+    height: 64px;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-contributor-footer .post-contributor-bio-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-table-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .post-contributor-footer .post-contributor-bio-userhead-cell,
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-cell {
+    flex-grow: 1;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-body-table-row {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell,
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    display: block;
+  }
+  .post-contributor-footer .post-contributor-bio-copy-cell {
+    margin: 0 0 16px 0;
+  }
+  .post-contributor-footer .post-contributor-bio-controls-cell {
+    width: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls {
+    margin: auto;
+  }
+  .post-contributor-footer .post-contributor-bio-controls .button.primary {
+    width: 100%;
+  }
+  .post-contributor-footer .post-contributor-bio-text {
+    font-size: 14px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .post-silhouette {
+    padding: 32px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-title {
+    margin-top: 10.44225025px;
+    height: 120px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-silhouette .post-silhouette-meta.with-byline-image {
+    margin: 20px 0;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    padding-right: 16px;
+  }
+}
+@media screen and (max-width: 370px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item,
+  .post-meta.alternative-meta .post-meta-item {
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .use-theme-bg .post-meta.alternative-meta .post-meta-item.guest-author-pu=
+blication,
+  .post-meta.alternative-meta .post-meta-item.guest-author-publication {
+    display: none;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item .post-meta-button {
+    height: 36px !important;
+    /* important to override in-line height style on emails */
+  }
+  .post-meta .post-meta-item .post-meta-button .meta-button-label {
+    display: none;
+  }
+  .post-meta .post-meta-item .post-meta-button > svg {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 370px) {
+  .post-meta .post-meta-item {
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post .floating-subscribe-button {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 1024px) {
+  body .pullquote-align-left,
+  body .pullquote-align-right,
+  body .pullquote-align-wide,
+  body .pullquote-align-center {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  body .markup table.image-wrapper img,
+  body .markup table.kindle-wrapper img {
+    max-width: 550px;
+  }
+}
+@media (min-width: 1024px) {
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body:not(:has(#toc)) .captioned-image-container figure:has(> a.image2-off=
+set-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (min-width: 1300px) {
+  body .captioned-image-container figure:has(> a.image2-offset-left) {
+    margin-left: var(--image-offset-margin);
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin-right: var(--image-offset-margin);
+  }
+}
+@media (max-width: 1024px) {
+  body {
+    /* Disable offset on mobile/tablet */
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left),
+  body .captioned-image-container figure:has(> a.image2-align-right) {
+    float: none;
+    margin: 1em auto;
+    max-width: 100%;
+    width: auto;
+    padding: 0;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left.thefp),
+  body .captioned-image-container figure:has(> a.image2-align-right.thefp) =
+{
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-offset-left),
+  body .captioned-image-container figure:has(> a.image2-offset-right) {
+    margin: 1em auto;
+  }
+  body .captioned-image-container figure:has(> a.image2-align-left) .image2=
+-inset,
+  body .captioned-image-container figure:has(> a.image2-align-right) .image=
+2-inset {
+    display: block;
+    justify-content: initial;
+  }
+}
+@media (max-width: 768px) {
+  body .markup div.sponsorship-campaign-embed {
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  body .markup div.sponsorship-campaign-embed:first-child {
+    margin-top: 0px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.youtube-overlay,
+  body .markup div.vimeo-overlay {
+    display: none !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  body .markup div.tiktok-wrap {
+    width: calc(95vw - 32px);
+    height: calc((95vw - 32px - 2px) / 0.485714);
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.embedded-publication-wrap .embedded-publication.show-sub=
+scribe {
+    padding: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e {
+    padding: 0px 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup div.subscription-widget-wrap .subscription-widget.show-subsc=
+ribe .subscription-widget-subscribe .button,
+  body .markup div.subscription-widget-wrap-editor .subscription-widget.sho=
+w-subscribe .subscription-widget-subscribe .button,
+  body .markup div.captioned-button-wrap .subscription-widget.show-subscrib=
+e .subscription-widget-subscribe .button {
+    padding: 10px 12px;
+    min-width: 110px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .twitter-embed,
+  body .markup .tweet {
+    padding: 12px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .twitter-embed .tweet-text,
+  body .markup .tweet .tweet-text {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .twitter-embed .tweet-photos-container.two,
+  body .markup .tweet .tweet-photos-container.two,
+  body .markup .twitter-embed .tweet-photos-container.three,
+  body .markup .tweet .tweet-photos-container.three,
+  body .markup .twitter-embed .tweet-photos-container.four,
+  body .markup .tweet .tweet-photos-container.four {
+    height: 200px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .twitter-embed a.expanded-link .expanded-link-img,
+  body .markup .tweet a.expanded-link .expanded-link-img {
+    max-height: 180px;
+  }
+}
+@media (max-width: 650px) {
+  body .markup .twitter-embed a.expanded-link .expanded-link-description,
+  body .markup .tweet a.expanded-link .expanded-link-description {
+    display: none;
+  }
+}
+@media screen and (max-width: 650px) {
+  body .markup .apple-podcast-container {
+    width: unset;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed img.install-substack-app-embed-i=
+mg {
+    margin: 0 auto 16px auto;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-text=
+ {
+    margin: 0 0 12px 0;
+    max-width: 100%;
+    width: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 420px) {
+  body .markup .install-substack-app-embed .install-substack-app-embed-link=
+ {
+    display: flex;
+    justify-content: center;
+  }
+}
+@media screen and (min-width: 500px) {
+  body .header a.logo {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+  }
+}
+@media screen and (max-width: 420px) {
+  body .subscription-receipt table:first-of-type .subscription-amount .subs=
+cription-discount {
+    width: 72px !important;
+  }
+}
+@media screen and (min-width: 481px) {
+  body .share-button-container {
+    height: auto;
+  }
+}
+@media screen and (max-width: 480px) {
+  body .share-button-container .separator {
+    display: block !important;
+    margin: 0 !important;
+    height: 8px !important;
+    border-left: none !important;
+  }
+}
+@media screen and (max-width: 650px) {
+  .digest .item .post-meta-item.audience {
+    display: none;
+  }
+}
+@media screen and (min-width: 500px) {
+  .digest-publication .logo img {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .comments-page .container .comment-list .collapsed-reply {
+    margin-left: calc(10 + 32px - 24px);
+  }
+}
+@media screen and (max-width: 650px) {
+  .comment > .comment-list {
+    padding-left: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .finish-magic-login-modal .modal-content .container {
+    padding: 24px 0;
+  }
+}
+@media (max-width: 650px) {
+  .reader2-text-b3 {
+    line-height: 24px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .reader2-text-h4 {
+    line-height: 24px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .user-profile-modal {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .subscribe-widget form.form .sideBySideWrap button.rightButton {
+    padding: 10px 12px;
+  }
+}
+@media screen and (min-width: 541px) {
+  .pub-icon:hover .logo-hover,
+  .feed-item-icon:hover .logo-hover {
+    display: block;
+  }
+}
+@media screen and (max-width: 650px) {
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper {
+    width: 100%;
+    padding: 16px;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button-wrapper:empty {
+    display: none;
+  }
+  .post-ufi.single-full-width-button .post-ufi-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .file-embed-wrapper-editor:active {
+    padding: 0;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .file-embed-button.wide,
+  .file-embed-error-button.wide {
+    display: none;
+  }
+}
+@media only screen and (min-width: 630px) {
+  .file-embed-button.narrow,
+  .file-embed-error-button.narrow {
+    display: none;
+  }
+}
+@media screen and (min-width: 541px) {
+  .audio-player-wrapper .audio-player {
+    min-width: 500px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper .audio-player .audio-player-progress .audio-player-=
+progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress {
+    border-left-width: 16px;
+    border-right-width: 16px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-progress .audio-p=
+layer-progress-bar .audio-player-progress-bar-popup {
+    top: -54px;
+  }
+}
+@media (min-width: 250px) {
+  .audio-player-wrapper-fancy .audio-player {
+    padding: 32px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:last-of-type=
+ {
+    display: block;
+  }
+}
+@media (min-width: 300px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-title {
+    margin-top: 16px;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 15%;
+    width: 15%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .audio-player-substack-logo {
+    display: block;
+  }
+}
+@media (min-width: 350px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 25%;
+    width: 25%;
+    display: block;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    display: flex;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button:first-of-typ=
+e {
+    display: block;
+  }
+}
+@media (min-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 40%;
+    width: 40%;
+  }
+}
+@media (max-width: 400px) {
+  .audio-player-wrapper-fancy .audio-player .btn-group {
+    margin-top: 12px;
+  }
+  .audio-player-wrapper-fancy .audio-player .btn-group .button {
+    font-size: 13px;
+    padding: 6px 12px;
+    height: auto;
+    margin-top: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .audio-player-wrapper-fancy .audio-player .audio-player-hero-image-contai=
+ner {
+    padding-top: 55%;
+    width: 55%;
+  }
+}
+@media (max-width: 650px) {
+  .poll-editor-modal {
+    min-width: calc(100% - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .poll-embed .poll-anchor-target .poll-anchor-copy-button {
+    left: 8px;
+    top: 45px;
+  }
+}</style></head><body class=3D"email-body" style=3D"font-kerning: auto;--im=
+age-offset-margin: -120px;"><img src=3D"https://eotrx.substackcdn.com/open?=
+token=3DeyJtIjoiPDIwMjYwMzI5MTIxOTM3LjMuYzgxNTJkY2QzZTY2ZmE3Y0BtZy1kMC5zdWJ=
+zdGFjay5jb20-IiwidSI6NjYxODM5NDMsInIiOiJ2YWxhbmFudG8xMzRAZ21haWwuY29tIiwiZC=
+I6Im1nLWQwLnN1YnN0YWNrLmNvbSIsInAiOjE5MTczNzA5NywidCI6Im5ld3NsZXR0ZXIiLCJhI=
+joiZXZlcnlvbmUiLCJzIjoxNTA4NzM4LCJjIjoicG9zdCIsImYiOnRydWUsInBvc2l0aW9uIjoi=
+dG9wIiwiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjE3NzczNzg3OTAsImlzcyI6InB1Yi0wIiwic3V=
+iIjoiZW8ifQ.SGRv-9NtlrMZq1SCdlBLTho0vXTOzJXovTzFivbZRec" alt=3D"" width=3D"=
+1" height=3D"1" border=3D"0" style=3D"height:1px !important;width:1px !impo=
+rtant;border-width:0 !important;margin-top:0 !important;margin-bottom:0 !im=
+portant;margin-right:0 !important;margin-left:0 !important;padding-top:0 !i=
+mportant;padding-bottom:0 !important;padding-right:0 !important;padding-lef=
+t:0 !important;"/><div class=3D"preview" style=3D"display:none;font-size:1p=
+x;color:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;over=
+flow:hidden;">Learn the hidden costs about importing everything directly an=
+d the structural change you need to make. (8 min)</div><div class=3D"previe=
+w" style=3D"display:none;font-size:1px;color:#333333;line-height:1px;max-he=
+ight:0px;max-width:0px;opacity:0;overflow:hidden;">&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199;=
+ &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp=
+; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#8=
+47; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; =
+&#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp;=
+ &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#84=
+7; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &=
+#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; =
+&#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847=
+; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#=
+173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &=
+#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847;=
+ &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#1=
+73;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#=
+8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; =
+&nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#17=
+3;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8=
+199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &=
+nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173=
+;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#81=
+99; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &n=
+bsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;=
+&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#819=
+9; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nb=
+sp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&=
+#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199=
+; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbs=
+p; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#847; &nbsp; &#8199; &#173;&#=
+847; &nbsp; &#8199; &#173;</div><table class=3D"email-body-container" role=
+=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=
+=3D"0"><tbody><tr><td></td><td class=3D"content" width=3D"550"></td><td></t=
+d></tr><tr><td></td><td class=3D"content" width=3D"550" align=3D"left"><div=
+ style=3D"font-size: 16px;line-height: 26px;max-width: 550px;width: 100%;ma=
+rgin: 0 auto;overflow-wrap: break-word;"><table role=3D"presentation" width=
+=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td a=
+lign=3D"right" style=3D"height:20px;"><table role=3D"presentation" width=3D=
+"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td styl=
+e=3D"vertical-align:middle;"><span class=3D"pencraft pc-reset reset-IxiVJZ =
+tw-font-body tw-text-ssm tw-text-substack-secondary" style=3D"font-family: =
+SF Pro Text, -apple-system, system-ui, BlinkMacSystemFont, Inter, Segoe UI,=
+ Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, S=
+egoe UI Symbol;font-size: 13px;color: unset;list-style: none;text-decoratio=
+n: unset;margin: 0;"><div class=3D"pencraft pc-reset align-right-VJbKw5 siz=
+e-12-mmZ61m reset-IxiVJZ" style=3D"list-style: none;color: unset;text-align=
+: right;font-size: 12px;line-height: 16px;text-decoration: unset;margin: 0;=
+"><span class=3D"pencraft pc-reset reset-IxiVJZ" translated=3D"" style=3D"l=
+ist-style: none;color: unset;text-decoration: unset;margin: 0;">Forwarded t=
+his email? <a class=3D"pencraft pc-reset decoration-underline-ClTkYc reset-=
+IxiVJZ" href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV0c2h=
+hcGVkLmRldi9zdWJzY3JpYmU_dXRtX3NvdXJjZT1lbWFpbCZ1dG1fY2FtcGFpZ249ZW1haWwtc3=
+Vic2NyaWJlJnI9MTNlanV2Jm5leHQ9aHR0cHMlM0ElMkYlMkZ0aGV0c2hhcGVkLmRldiUyRnAlM=
+kZkZXBlbmRlbmN5LWluamVjdGlvbi1pbi1ub2RlanMtYW5kLXR5cGVzY3JpcHQtZGVwZW5kZW5j=
+eS1pbnZlcnNpb24tcGFydC1uby1ib2R5LXRlYWNoZXMteW91IiwicCI6MTkxNzM3MDk3LCJzIjo=
+xNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0MywiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOT=
+AzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.bJxbrWcvNn1cq8Uw=
+4l7t5qcfjWxsyDRz32dltYxVcko?" style=3D"list-style: none;color: unset;text-d=
+ecoration: unset;margin: 0;-webkit-text-decoration-line: underline;text-dec=
+oration-line: underline;">Subscribe here</a> for more</span></div></span></=
+td></tr></tbody></table></td></tr></tbody></table><table class=3D"header gr=
+aphic-header" role=3D"presentation" style=3D"border-spacing: 0;padding: 16p=
+x 0 32px;"><tbody><tr><td align=3D"center" style=3D"text-align: center;padd=
+ing: 0;"><a href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV=
+0c2hhcGVkLmRldi9wL2RlcGVuZGVuY3ktaW5qZWN0aW9uLWluLW5vZGVqcy1hbmQtdHlwZXNjcm=
+lwdC1kZXBlbmRlbmN5LWludmVyc2lvbi1wYXJ0LW5vLWJvZHktdGVhY2hlcy15b3U_dXRtX2Nhb=
+XBhaWduPWVtYWlsLWhhbGYtcG9zdCZyPTEzZWp1diZ0b2tlbj1leUoxYzJWeVgybGtJam8yTmpF=
+NE16azBNeXdpY0c5emRGOXBaQ0k2TVRreE56TTNNRGszTENKcFlYUWlPakUzTnpRM09EWTNPVEF=
+zSW1WNGNDSTZNVGMzTnpNM09EYzVNQ3dpYVhOeklqb2ljSFZpTFRFMU1EZzNNemdpTENKemRXSW=
+lPaUp3YjNOMExYSmxZV04wYVc5dUluMC5vY0thSGtPeXV3RTRZWWFwMHd3ZU1nN0xQQjdnTjhpU=
+VZ3dUU5ckR2VkpNIiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4=
+Mzk0MywiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3V=
+iIjoibGluay1yZWRpcmVjdCJ9.7-2jbRSmiLOO5d_cPWLQfj3uXTM80AYtM8EMxqPSSzQ?"><im=
+g class=3D"header-image" role=3D"presentation" width=3D"550" height=3D"104"=
+ src=3D"https://substackcdn.com/image/fetch/$s_!fvsr!,w_1100,c_limit,f_auto=
+,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amaz=
+onaws.com%2Fpublic%2Fimages%2Fedfbb29e-4ee7-432d-b309-054b74f540c5_1344x254=
+=2Epng" style=3D"border: none !important=
+;vertical-align: middle;max-width: 55=
+0px;display: block;margin: 0 auto;height: auto;width: 100%;"></a></td></tr>=
+</tbody></table><div class=3D"typography" style=3D"--image-offset-margin: -=
+120px;font-size: 16px;line-height: 26px;"><div class=3D"preamble" style=3D"=
+font-size: 16px;line-height: 26px;margin-top: 16px;"><div class=3D"body mar=
+kup" dir=3D"auto" style=3D"text-align: initial;font-size: 16px;line-height:=
+ 26px;width: 100%;word-break: break-word;margin-bottom: 16px;"><p style=3D"=
+margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;m=
+argin-top: 0;"><span>&#128075; Hey, it&#8217;s </span><a href=3D"https://su=
+bstack.com/redirect/d1495c92-e6cb-4098-b762-8699a71749ca?j=3DeyJ1IjoiMTNlan=
+V2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color:=
+ rgb(54,55,55);text-decoration: underline;">Petar</a><span>&#8230;This is a=
+ free edition of this newsletter. To get every post and other paid subscrib=
+er benefits, </span><a href=3D"https://substack.com/redirect/e3c444dc-a074-=
+49b7-9af8-1a5b4deb821f?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEG=
+LhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54,55,55);text-decoration: un=
+derline;">upgrade your subscription right now</a><span>.</span></p><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;margin-bottom: 0;"><em>Refer just 3 people &amp; I'll send you some rewa=
+rds.</em></p></div><hr style=3D"padding: 0;height: 1px;background: rgb(0,0,=
+0,.1);border: none;margin: 16px 0 0;"></div></div><div class=3D"post typogr=
+aphy" dir=3D"auto" style=3D"--image-offset-margin: -120px;padding: 32px 0 0=
+ 0;font-size: 16px;line-height: 26px;"><div class=3D"post-header" role=3D"r=
+egion" aria-label=3D"Post header" style=3D"font-size: 16px;line-height: 26p=
+x;"><h1 class=3D"post-title published title-X77sOw" dir=3D"auto" style=3D"d=
+irection: auto;text-align: start;unicode-bidi: isolate;color: rgb(54,55,55)=
+;font-family: 'SF Pro Display', -apple-system, system-ui, BlinkMacSystemFon=
+t, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color =
+Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-weight: 900;-webkit-font-s=
+moothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearan=
+ce: optimizelegibility;-moz-appearance: optimizelegibility;appearance: opti=
+mizelegibility;margin: 0;line-height: 36px;font-size: 32px;"><a href=3D"htt=
+ps://substack.com/app-link/post?publication_id=3D1508738&post_id=3D19173709=
+7&utm_source=3Dpost-email-title&utm_campaign=3Demail-post-title&isFreemail=
+=3Dtrue&r=3D13ejuv&token=3DeyJ1c2VyX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3=
+MDk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cCI6MTc3NzM3ODc5MCwiaXNzIjoicHViLTE1MDg3Mzg=
+iLCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.ocKaHkOyuwE4YYap0wweMg7LPB7gN8iQVwuE9rDvVJ=
+M" style=3D"color: rgb(54,55,55);text-decoration: none;">Dependency Injecti=
+on in Node.js &amp; TypeScript. The Part Nobody Teaches You</a></h1><h3 cla=
+ss=3D"subtitle subtitle-HEEcLo" dir=3D"auto" style=3D"direction: auto;text-=
+align: start;unicode-bidi: isolate;font-family: 'SF Pro Display',-apple-sys=
+tem-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,H=
+elvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Sy=
+mbol';font-weight: normal;-webkit-font-smoothing: antialiased;-moz-osx-font=
+-smoothing: antialiased;-webkit-appearance: optimizelegibility;-moz-appeara=
+nce: optimizelegibility;appearance: optimizelegibility;margin: 4px 0 0;colo=
+r: #777777;line-height: 24px;font-size: 18px;margin-top: 12px;">Learn the h=
+idden costs about importing everything directly and the structural change y=
+ou need to make. (8 min)</h3><table class=3D"post-meta" role=3D"presentatio=
+n" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D=
+"margin: 1em 0;height: 20px;align-items: center;"><tbody><tr><td><table rol=
+e=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpaddin=
+g=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"vertical=
+-align:middle;"><div class=3D"pencraft pc-reset color-primary-zABazT line-h=
+eight-20-t4M0El font-meta-MWBumP size-11-NuY2Zx weight-medium-fw81nC transf=
+orm-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA custom-css-email-post-author"=
+ style=3D"list-style: none;font-size: 11px;line-height: 20px;text-decoratio=
+n: unset;color: rgb(54,55,55);margin: 0;font-family: 'SF Compact',-apple-sy=
+stem,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica=
+,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';fo=
+nt-weight: 500;text-transform: uppercase;letter-spacing: .2px;"><a class=3D=
+"pencraft pc-reset color-primary-zABazT line-height-20-t4M0El font-meta-MWB=
+umP size-11-NuY2Zx weight-medium-fw81nC transform-uppercase-yKDgcq reset-Ix=
+iVJZ meta-EgzBVA" style=3D"list-style: none;color: rgb(54,55,55);margin: 0;=
+font-size: 11px;line-height: 20px;font-family: 'SF Compact',-apple-system,s=
+ystem-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial=
+,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-wei=
+ght: 500;text-transform: uppercase;letter-spacing: .2px;text-decoration: no=
+ne" href=3D"https://substack.com/@petarivanovv9">Petar Ivanov</a></div></td=
+></tr></tbody></table></td></tr><tr><td><table role=3D"presentation" width=
+=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td s=
+tyle=3D"vertical-align:middle;"><div class=3D"pencraft pc-reset color-secon=
+dary-ls1g8s line-height-20-t4M0El font-meta-MWBumP size-11-NuY2Zx weight-me=
+dium-fw81nC transform-uppercase-yKDgcq reset-IxiVJZ meta-EgzBVA" style=3D"l=
+ist-style: none;font-size: 11px;line-height: 20px;text-decoration: unset;co=
+lor: rgb(119,119,119);margin: 0;font-family: 'SF Compact',-apple-system,sys=
+tem-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,s=
+ans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weigh=
+t: 500;text-transform: uppercase;letter-spacing: .2px;"><time datetime=3D"2=
+026-03-29T12:19:37.110Z">Mar 29</time></div></td></tr></tbody></table></td>=
+</tr></tbody></table></td><td align=3D"right"><table role=3D"presentation" =
+width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr>=
+<td style=3D"vertical-align:middle;"><a href=3D"https://substack.com/@petar=
+ivanovv9"><img class=3D"custom-css-email-avatar avatar-QIQ5yR" src=3D"https=
+://substackcdn.com/image/fetch/$s_!Hqxs!,f_auto,q_auto:good,fl_progressive:=
+steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%=
+2Fb236a7ab-735e-49d2-bbe8-98b1f901b169_500x500.jpeg" style=3D"box-sizing: b=
+order-box;max-width: 550px;border: none;vertical-align: middle;width: 40px;=
+height: 40px;min-width: 40px;min-height: 40px;object-fit: cover;margin: 0px=
+;display: inline;border-radius: 50%" width=3D"40" height=3D"40"></a></td></=
+tr></tbody></table></td></tr></tbody></table><table class=3D"email-ufi-2-to=
+p" role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1=
+px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr height=3D"16"><td heigh=
+t=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;</td></tr><tr><td><ta=
+ble role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td style=3D"ver=
+tical-align:middle;"><table role=3D"presentation" width=3D"38" border=3D"0"=
+ cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"center"><a cla=
+ss=3D"email-icon-button" href=3D"https://substack.com/app-link/post?publica=
+tion_id=3D1508738&post_id=3D191737097&utm_source=3Dsubstack&isFreemail=3Dtr=
+ue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNz=
+M3MDk3LCJyZWFjdGlvbiI6IuKdpCIsImlhdCI6MTc3NDc4Njc5MCwiZXhwIjoxNzc3Mzc4NzkwL=
+CJpc3MiOiJwdWItMTUwODczOCIsInN1YiI6InJlYWN0aW9uIn0.eowVmKjTY4e0PhEishN45jJx=
+VeZ1XpYPgf6otQMfMAA&utm_medium=3Demail&utm_campaign=3Demail-reaction&r=3D13=
+ejuv" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,'Seg=
+oe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoj=
+i','Segoe UI Symbol';display: inline-block;font-weight: 500;border: 1px sol=
+id rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;font-size:=
+ 12px;line-height: 1;padding: 9px 0;text-decoration: none;color: rgb(119,11=
+9,119);min-width: 38px;box-sizing: border-box;width: 38px"><img class=3D"ic=
+on" src=3D"https://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_scale,f_png=
+,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucid=
+eHeart%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeW=
+idth%3D2" width=3D"18" height=3D"18" style=3D"border: none;vertical-align: =
+middle;max-width: 18px" alt=3D""></a></td></tr></tbody></table></td><td wid=
+th=3D"8" style=3D"min-width:8px;"></td><td style=3D"vertical-align:middle;"=
+><table role=3D"presentation" width=3D"38" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr><td align=3D"center"><a class=3D"email-icon-but=
+ton" href=3D"https://substack.com/app-link/post?publication_id=3D1508738&po=
+st_id=3D191737097&utm_source=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtru=
+e&comments=3Dtrue&token=3DeyJ1c2VyX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3M=
+Dk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cCI6MTc3NzM3ODc5MCwiaXNzIjoicHViLTE1MDg3Mzgi=
+LCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.ocKaHkOyuwE4YYap0wweMg7LPB7gN8iQVwuE9rDvVJM=
+&r=3D13ejuv&utm_campaign=3Demail-half-magic-comments&action=3Dpost-comment&=
+utm_source=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system-ui,-=
+apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-seri=
+f,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-bl=
+ock;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;=
+text-transform: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;tex=
+t-decoration: none;color: rgb(119,119,119);min-width: 38px;box-sizing: bord=
+er-box;width: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/imag=
+e/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https=
+%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fill%=
+3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18"=
+ style=3D"border: none;vertical-align: middle;max-width: 18px" alt=3D""></a=
+></td></tr></tbody></table></td><td width=3D"8" style=3D"min-width:8px;"></=
+td><td style=3D"vertical-align:middle;"><table role=3D"presentation" width=
+=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td ali=
+gn=3D"center"><a class=3D"email-icon-button" href=3D"https://substack.com/a=
+pp-link/post?publication_id=3D1508738&post_id=3D191737097&utm_source=3Dsubs=
+tack&utm_medium=3Demail&utm_content=3Dshare&utm_campaign=3Demail-share&acti=
+on=3Dshare&triggerShare=3Dtrue&isFreemail=3Dtrue&r=3D13ejuv&token=3DeyJ1c2V=
+yX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3MDk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cC=
+I6MTc3NzM3ODc5MCwiaXNzIjoicHViLTE1MDg3MzgiLCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.o=
+cKaHkOyuwE4YYap0wweMg7LPB7gN8iQVwuE9rDvVJM" style=3D"font-family: system-ui=
+,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-se=
+rif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-=
+block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999p=
+x;text-transform: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;t=
+ext-decoration: none;color: rgb(119,119,119);min-width: 38px;box-sizing: bo=
+rder-box;width: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/im=
+age/fetch/$s_!_L14!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/htt=
+ps%3A%2F%2Fsubstack.com%2Ficon%2FLucideShare2%3Fv%3D4%26height%3D36%26fill%=
+3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"18"=
+ style=3D"border: none;vertical-align: middle;max-width: 18px" alt=3D""></a=
+></td></tr></tbody></table></td><td width=3D"8" style=3D"min-width:8px;"></=
+td><td style=3D"vertical-align:middle;"><table role=3D"presentation" width=
+=3D"38" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td ali=
+gn=3D"center"><a class=3D"email-icon-button" href=3D"https://substack.com/r=
+edirect/2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvcGV0YXJpdmFub3Z2O=
+S9wL2RlcGVuZGVuY3ktaW5qZWN0aW9uLWluLW5vZGVqcy1hbmQtdHlwZXNjcmlwdC1kZXBlbmRl=
+bmN5LWludmVyc2lvbi1wYXJ0LW5vLWJvZHktdGVhY2hlcy15b3U_dXRtX3NvdXJjZT1zdWJzdGF=
+jayZ1dG1fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1lbWFpbC1yZXN0YWNrLWNvbW1lbnQmYW=
+N0aW9uPXJlc3RhY2stY29tbWVudCZyPTEzZWp1diZ0b2tlbj1leUoxYzJWeVgybGtJam8yTmpFN=
+E16azBNeXdpY0c5emRGOXBaQ0k2TVRreE56TTNNRGszTENKcFlYUWlPakUzTnpRM09EWTNPVEFz=
+SW1WNGNDSTZNVGMzTnpNM09EYzVNQ3dpYVhOeklqb2ljSFZpTFRFMU1EZzNNemdpTENKemRXSWl=
+PaUp3YjNOMExYSmxZV04wYVc5dUluMC5vY0thSGtPeXV3RTRZWWFwMHd3ZU1nN0xQQjdnTjhpUV=
+Z3dUU5ckR2VkpNIiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4M=
+zk0MywiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3Vi=
+IjoibGluay1yZWRpcmVjdCJ9.tU_0ZvrRUszh4hxxlhYx5mACOrihpJVtC1Hw1I4iWpE?&utm_s=
+ource=3Dsubstack&utm_medium=3Demail" style=3D"font-family: system-ui,-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Ap=
+ple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;f=
+ont-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-=
+transform: uppercase;font-size: 12px;line-height: 1;padding: 9px 0;text-dec=
+oration: none;color: rgb(119,119,119);min-width: 38px;box-sizing: border-bo=
+x;width: 38px"><img class=3D"icon" src=3D"https://substackcdn.com/image/fet=
+ch/$s_!ubXF!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/https%3A%2=
+F%2Fsubstack.com%2Ficon%2Fnotes__NoteRestackIcon%3Fv%3D4%26height%3D36%26fi=
+ll%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2%26strokeLinecap%3Dround%=
+26strokeLinejoin%3Dround" width=3D"18" height=3D"18" alt=3D"" style=3D"max-=
+width: 550px;border: none !important;vertical-align: middle;"></a></td></tr=
+></tbody></table></td></tr></tbody></table></td><td align=3D"right"><table =
+role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0"><tbody><tr><td style=3D"vertical-align:middle;"><table role=3D"p=
+resentation" width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0=
+"><tbody><tr><td align=3D"center"><a class=3D"email-button-outline" href=3D=
+"https://open.substack.com/pub/petarivanovv9/p/dependency-injection-in-node=
+js-and-typescript-dependency-inversion-part-no-body-teaches-you?utm_source=
+=3Demail&redirect=3Dapp-store&utm_campaign=3Demail-read-in-app" style=3D"fo=
+nt-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Hel=
+vetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symb=
+ol';display: inline-block;font-weight: 500;border: 1px solid rgb(0,0,0,.1);=
+border-radius: 9999px;text-transform: uppercase;font-size: 12px;line-height=
+: 12px;padding: 9px 14px;text-decoration: none;color: rgb(119,119,119);"><d=
+iv class=3D"email-button-spacer" style=3D"font-size: 16px;line-height: 26px=
+;display: inline-block;vertical-align: middle;max-width: 0;min-height: 18px=
+;"></div><span class=3D"email-button-text" style=3D"vertical-align: middle;=
+margin-right: 4px">READ IN APP</span><img class=3D"icon text-icon" src=3D"h=
+ttps://substackcdn.com/image/fetch/$s_!ET-_!,w_36,c_scale,f_png,q_auto:good=
+,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideArrowUpRigh=
+t%3Fv%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%=
+3D2" width=3D"18" height=3D"18" style=3D"min-width: 18px;min-height: 18px;b=
+order: none;vertical-align: middle;margin-right: 0;margin-left: 0;max-width=
+: 18px" alt=3D""></a></td></tr></tbody></table></td></tr></tbody></table></=
+td></tr></tbody></table></td></tr><tr height=3D"16"><td height=3D"16" style=
+=3D"font-size:0px;line-height:0;">&nbsp;</td></tr></tbody></table></div></d=
+iv><div class=3D"post typography" dir=3D"auto" style=3D"--image-offset-marg=
+in: -120px;padding: 32px 0 0 0;font-size: 16px;line-height: 26px;"><div cla=
+ss=3D"body markup" dir=3D"auto" style=3D"text-align: initial;font-size: 16p=
+x;line-height: 26px;width: 100%;word-break: break-word;margin-bottom: 16px;=
+font-family: 'SF Pro Display', -apple-system, system-ui, BlinkMacSystemFont=
+, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color E=
+moji', 'Segoe UI Emoji', 'Segoe UI Symbol';font-weight: 400;"><p style=3D"m=
+argin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;ma=
+rgin-top: 0;"><em>This post outlines a common Node.js pattern and how to so=
+lve it.</em></p><ul style=3D"margin-top: 0;padding: 0;"><li style=3D"margin=
+: 8px 0 0 32px;mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55=
+);line-height: 26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4=
+px;font-size: 16px;margin: 0;"><em><a href=3D"https://substack.com/redirect=
+/3c759b22-8eae-4972-8fac-e95dfd8d1f11?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmo=
+ffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54,55,55);text=
+-decoration: underline;">Share this post</a><span> &amp; I&#8217;ll send yo=
+u some rewards for the referrals.</span></em></p></li></ul><p style=3D"marg=
+in: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">In =
+the Java/C# world, DI containers are a religion.</p><p style=3D"margin: 0 0=
+ 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>In N=
+ode.js, most developers just </span><code>import</code><span> modules direc=
+tly, until testing becomes a nightmare and swapping implementations means r=
+ewriting half the app.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(=
+54,55,55);line-height: 26px;font-size: 16px;"><span>You don&#8217;t need de=
+pendency injection containers like </span><a href=3D"https://substack.com/r=
+edirect/92431213-07a1-46d6-a788-4675ac1acbf8?j=3DeyJ1IjoiMTNlanV2In0.TRwTjG=
+QpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54,55,5=
+5);text-decoration: underline;">InversifyJS</a><span> or </span><a href=3D"=
+https://substack.com/redirect/05dcb0df-f114-446f-815e-a54e184701de?j=3DeyJ1=
+IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=
+=3D"color: rgb(54,55,55);text-decoration: underline;">tsyringe</a><span>.</=
+span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 2=
+6px;font-size: 16px;">Here&#8217;s how to do dependency injection with plai=
+n TypeScript, and why it&#8217;ll make your code instantly more testable.</=
+p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32=
+px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border: none;"></div>=
+<h2 class=3D"header-anchor-post" style=3D"position: relative;font-family: '=
+SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMacSyst=
+emFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Se=
+goe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing: a=
+ntialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optimiz=
+elegibility;-moz-appearance: optimizelegibility;appearance: optimizelegibil=
+ity;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font-s=
+ize: 1.625em;">Dependency Injection vs. Dependency Inversion</h2><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;">These terms get used interchangeably. But they're not the same.</p><p =
+style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-siz=
+e: 16px;"><strong>Dependency Injection</strong><span> (DI) is a technique: =
+instead of a class/function creating its own dependencies, you pass them in=
+ from the outside.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,5=
+5,55);line-height: 26px;font-size: 16px;"><strong>Dependency Inversion</str=
+ong><span> is a principle (the &#8220;D&#8221; in SOLID): high-level module=
+s shouldn&#8217;t depend on low-level modules. Both should depend on abstra=
+ctions.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-=
+height: 26px;font-size: 16px;">Dependency Injection is how you implement De=
+pendency Inversion.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);=
+line-height: 26px;font-size: 16px;">But you can do DI without inverting any=
+thing. This is the place where most Node.js developers stop.</p><pre style=
+=3D"background: rgb(255,255,255);padding: 20px;margin-top: 0;margin-bottom:=
+ 20px;outline: 1px solid rgb(0,0,0,.1);outline-offset: -1px;border-radius: =
+12px;box-sizing: border-box;white-space: pre-wrap;font-family: monospace;fo=
+nt-size: 13px;line-height: 24px;font-weight: 500;color: rgb(54,55,55);"><co=
+de>// Direct dependency &#8212; no injection
+import { db } from './database';
+
+export async function getUser(id: string) {
+  return db.query('SELECT * FROM users WHERE id =3D $1', [id]);
+}</code></pre><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-heig=
+ht: 26px;font-size: 16px;"><span>This works. But you can&#8217;t test </spa=
+n><code>getUser</code><span> without a real database.</span></p><p style=3D=
+"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;=
+">You can&#8217;t swap PostgreSQL for an in-memory store.</p><p style=3D"ma=
+rgin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><=
+span>And if </span><code>database.ts</code><span> has side effects on impor=
+t, every test file that touches </span><code>getUser</code><span> pays that=
+ cost.</span></p><div style=3D"font-size: 16px;line-height: 26px;"><hr styl=
+e=3D"margin: 32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border=
+: none;"></div><h2 class=3D"header-anchor-post" style=3D"position: relative=
+;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple C=
+olor Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-fo=
+nt-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appe=
+arance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: =
+optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height=
+: 1.16em;font-size: 1.625em;">The Node.js Anti-Pattern: Import Everything D=
+irectly</h2><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height=
+: 26px;font-size: 16px;">Here&#8217;s what most Express apps look like:</p>=
+<pre style=3D"background: rgb(255,255,255);padding: 20px;margin-top: 0;marg=
+in-bottom: 20px;outline: 1px solid rgb(0,0,0,.1);outline-offset: -1px;borde=
+r-radius: 12px;box-sizing: border-box;white-space: pre-wrap;font-family: mo=
+nospace;font-size: 13px;line-height: 24px;font-weight: 500;color: rgb(54,55=
+,55);"><code>// userService.ts
+import { knex } from &#8216;../lib/database&#8217;;
+import { sendEmail } from &#8216;../lib/email&#8217;;
+import { logger } from &#8216;../lib/logger&#8217;;
+
+export async function createUser(data: CreateUserInput) {
+  const [user] =3D await knex(&#8217;users&#8217;).insert(data).returning(&=
+#8217;*&#8217;);
+  await sendEmail(user.email, &#8216;Welcome!&#8217;);
+  logger.info(`User created: ${user.id}`);
+  return user;
+}</code></pre><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-heig=
+ht: 26px;font-size: 16px;">There are three hardcoded dependencies. And to t=
+est this function, you need:</p><ul style=3D"margin-top: 0;padding: 0;"><li=
+ style=3D"margin: 8px 0 0 32px;mso-special-format: bullet;"><p style=3D"col=
+or: rgb(54,55,55);line-height: 26px;margin-bottom: 0;box-sizing: border-box=
+;padding-left: 4px;font-size: 16px;margin: 0;">A running database (or mock =
+Knex globally)</p></li><li style=3D"margin: 8px 0 0 32px;mso-special-format=
+: bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom=
+: 0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;">An=
+ email service (or mock the module)</p></li><li style=3D"margin: 8px 0 0 32=
+px;mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55);line-heigh=
+t: 26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size=
+: 16px;margin: 0;">A logger (or suppress output)</p></li></ul><p style=3D"m=
+argin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">=
+<span>Module mocking (</span><code>jest.mock</code><span>, </span><code>vi.=
+mock</code><span>) is the usual escape hatch, but it&#8217;s brittle becaus=
+e we&#8217;re mocking import paths, not the actual contracts.</span></p><p =
+style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-siz=
+e: 16px;">For example, if you rename a file, your mocks break silently.</p>=
+<p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-=
+size: 16px;"><strong>Module mocking is a code smell.</strong></p><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;">It tells you your code has hidden dependencies that should be explicit=
+=2E</p><div style=3D"font-size: 16px;li=
+ne-height: 26px;"><hr style=3D"margin:=
+ 32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border: none;"></d=
+iv><h2 class=3D"header-anchor-post" style=3D"position: relative;font-family=
+: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMacS=
+ystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji',=
+'Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing=
+: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: opti=
+mizelegibility;-moz-appearance: optimizelegibility;appearance: optimizelegi=
+bility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;fon=
+t-size: 1.625em;">What Dependency Injection Actually Solves</h2><p style=3D=
+"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;=
+">Before we continue further, let&#8217;s be clear about what we&#8217;re f=
+ixing:</p><ul style=3D"margin-top: 0;padding: 0;"><li style=3D"margin: 8px =
+0 0 32px;mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55);line=
+-height: 26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;fon=
+t-size: 16px;margin: 0;"><strong>Testability.</strong><span> When a module =
+imports its dependencies directly, you&#8217;re forced into module-level mo=
+cking (</span><code>jest.mock()</code><span>, </span><code>vi.mock()</code>=
+<span>) to test it. These mocks are fragile, magical, and break when you re=
+name a file. With DI, you pass plain objects, and no mocking framework is n=
+eeded.</span></p></li><li style=3D"margin: 8px 0 0 32px;mso-special-format:=
+ bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom:=
+ 0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><st=
+rong>Swappability.</strong><span> Imagine you have to switch from Knex to D=
+rizzle, or from SendGrid to AWS SES. When dependencies are injected, you sw=
+ap the implementation in one place. When they&#8217;re imported, you touch =
+every file.</span></p></li><li style=3D"margin: 8px 0 0 32px;mso-special-fo=
+rmat: bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bo=
+ttom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;=
+"><strong>Explicit dependencies.</strong><span> A function&#8217;s signatur=
+e should tell you what it needs. If </span><code>createUser</code><span> se=
+cretly depends on a database, an email client, and a logger, but its signat=
+ure only shows </span><code>data: CreateUserDTO</code><span>, that&#8217;s =
+a lie. DI makes dependencies visible.</span></p></li><li style=3D"margin: 8=
+px 0 0 32px;mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55);l=
+ine-height: 26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;=
+font-size: 16px;margin: 0;"><strong>Separation of concerns.</strong><span> =
+Your business logic shouldn&#8217;t know (or care) whether it&#8217;s talki=
+ng to Postgres or SQLite, SendGrid or a local SMTP server. DI enforces that=
+ boundary naturally.</span></p></li></ul><p style=3D"margin: 0 0 20px 0;col=
+or: rgb(54,55,55);line-height: 26px;font-size: 16px;">Now, let&#8217;s see =
+how to do dependency injection in Node.js without any frameworks.</p><div s=
+tyle=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: 32px 0;pad=
+ding: 0;height: 1px;background: rgb(0,0,0,.1);border: none;"></div><div cla=
+ss=3D"subscription-widget-wrap" style=3D"font-size: 16px;line-height: 26px;=
+"><div class=3D"subscription-widget show-subscribe" style=3D"font-size: 16p=
+x;direction: ltr !important;font-weight: 400;text-decoration: none;font-fam=
+ily: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica=
+,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';co=
+lor: #363737;line-height: 1.5;max-width: 560px;margin: 24px auto;align-item=
+s: flex-start;display: block;text-align: center;padding: 0px 32px;"><div cl=
+ass=3D"preamble" style=3D"margin-top: 16px;font-family: system-ui,-apple-sy=
+stem,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple=
+ Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-size: 18px;max-width:=
+ 384px;width: fit-content;line-height: 22px;display: flex;align-items: cent=
+er;text-align: center;font-weight: 400;margin-left: auto;margin-right: auto=
+;"><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;fo=
+nt-size: 16px;">Subscribe to get practical tips on React.js, Node.js, and S=
+oftware Architecture delivered straight to your inbox:</p></div><div class=
+=3D"subscribe-widget is-signed-up" data-component-name=3D"SubscribeWidget" =
+style=3D"margin: 0 0 1em;direction: ltr;font-size: 16px;line-height: 26px;"=
+><div class=3D"pencraft pc-reset button-wrapper" style=3D"text-decoration: =
+unset;list-style: none;font-size: 16px;line-height: 26px;text-align: center=
+;cursor: pointer;border-radius: 4px;"><a class=3D"button subscribe-btn prim=
+ary" href=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV0c2hhcG=
+VkLmRldi9zdWJzY3JpYmU_dXRtX3NvdXJjZT1wb3N0JnV0bV9jYW1wYWlnbj1lbWFpbC1jaGVja=
+291dCZuZXh0PWh0dHBzJTNBJTJGJTJGdGhldHNoYXBlZC5kZXYlMkZwJTJGZGVwZW5kZW5jeS1p=
+bmplY3Rpb24taW4tbm9kZWpzLWFuZC10eXBlc2NyaXB0LWRlcGVuZGVuY3ktaW52ZXJzaW9uLXB=
+hcnQtbm8tYm9keS10ZWFjaGVzLXlvdSZyPTEzZWp1diZ0b2tlbj1leUoxYzJWeVgybGtJam8yTm=
+pFNE16azBNeXdpYVdGMElqb3hOemMwTnpnMk56a3dMQ0psZUhBaU9qRTNOemN6TnpnM09UQXNJb=
+Wx6Y3lJNkluQjFZaTB4TlRBNE56TTRJaXdpYzNWaUlqb2lZMmhsWTJ0dmRYUWlmUS5EdkZCaVhx=
+MnhqUm1JWF9qNG54Nl9VZXpReDBaek81c19XaEN6MkNOajlrIiwicCI6MTkxNzM3MDk3LCJzIjo=
+xNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0MywiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOT=
+AzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZWRpcmVjdCJ9.-yKARYcmCpDW8Ocv=
+n_94-r53XTQHUj5-PvgaAZAtdFc?&utm_medium=3Demail&utm_source=3Dsubscribe-widg=
+et-preamble&utm_content=3D191737097" style=3D"font-family: system-ui,-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Ap=
+ple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;b=
+ox-sizing: border-box;cursor: pointer;border: none;border-radius: 8px;font-=
+size: 14px;line-height: 20px;font-weight: 600;text-align: center;opacity: 1=
+;outline: none;white-space: nowrap;text-decoration: none !important;margin:=
+ 0 auto;background-color: #111827;color: #ffffff !important;padding: 12px 2=
+0px;height: auto;"><span style=3D"color: #ffffff;text-decoration: none;">Up=
+grade to paid</span></a></div></div></div></div><div style=3D"font-size: 16=
+px;line-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;b=
+ackground: rgb(0,0,0,.1);border: none;"></div><h2 class=3D"header-anchor-po=
+st" style=3D"position: relative;font-family: 'SF Pro Display',-apple-system=
+-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helv=
+etica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbo=
+l';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoo=
+thing: antialiased;-webkit-appearance: optimizelegibility;-moz-appearance: =
+optimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0;c=
+olor: rgb(54,55,55);line-height: 1.16em;font-size: 1.625em;"><strong>Step 1=
+: Constructor Injection (Manual DI)</strong></h2><p style=3D"margin: 0 0 20=
+px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>The sim=
+plest fix: </span><strong>accept dependencies as parameters</strong><span>.=
+</span></p><pre style=3D"background: rgb(255,255,255);padding: 20px;margin-=
+top: 0;margin-bottom: 20px;outline: 1px solid rgb(0,0,0,.1);outline-offset:=
+ -1px;border-radius: 12px;box-sizing: border-box;white-space: pre-wrap;font=
+-family: monospace;font-size: 13px;line-height: 24px;font-weight: 500;color=
+: rgb(54,55,55);"><code>// userService.ts
+interface UserRepository {
+  create(data: CreateUserInput): Promise&lt;User&gt;;
+}
+
+interface EmailService {
+  send(to: string, subject: string): Promise&lt;void&gt;;
+}
+
+interface Logger {
+  info(message: string): void;
+}
+
+export function createUserService(
+  repo: UserRepository,
+  email: EmailService,
+  logger: Logger
+) {
+  return {
+    async createUser(data: CreateUserInput) {
+      const user =3D await repo.create(data);
+      await email.send(user.email, &#8216;Welcome!&#8217;);
+      logger.info(`User created: ${user.id}`);
+      return user;
+    },
+  };
+}</code></pre><div class=3D"captioned-image-container-static" style=3D"font=
+-size: 16px;line-height: 26px;margin: 32px auto;"><figure style=3D"width: 1=
+00%;margin: 0 auto;"><table class=3D"image-wrapper" width=3D"100%" border=
+=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component-name=3D"Image2ToD=
+OMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"t=
+ext-align: center;"></td><td class=3D"content" align=3D"left" width=3D"1456=
+" style=3D"text-align: center;"><a class=3D"image-link" target=3D"_blank" h=
+ref=3D"https://substack.com/redirect/4f53ec8e-8569-41e4-b288-ab084c6a5f0f?j=
+=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"=
+" style=3D"position: relative;flex-direction: column;align-items: center;pa=
+dding: 0;width: auto;height: auto;border: none;text-decoration: none;displa=
+y: block;margin: 0;"><img class=3D"wide-image" data-attrs=3D"{&quot;src&quo=
+t;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/f4664d5=
+7-86d7-484e-9f6d-cdb4dcdab229_1932x744.png&quot;,&quot;srcNoWatermark&quot;=
+:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&q=
+uot;:561,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&qu=
+ot;:178393,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&qu=
+ot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quo=
+t;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://thetshape=
+d.dev/i/191737097?img=3Dhttps%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%=
+2Fpublic%2Fimages%2Ff4664d57-86d7-484e-9f6d-cdb4dcdab229_1932x744.png&quot;=
+,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:f=
+alse}" alt=3D"" width=3D"550" height=3D"211.9162087912088" src=3D"https://s=
+ubstackcdn.com/image/fetch/$s_!H_M7!,w_1100,c_limit,f_auto,q_auto:good,fl_p=
+rogressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpubli=
+c%2Fimages%2Ff4664d57-86d7-484e-9f6d-cdb4dcdab229_1932x744.png" style=3D"bo=
+rder: none !important;vertical-align: middle;display: block;-ms-interpolati=
+on-mode: bicubic;height: auto;margin-bottom: 0;width: auto !important;max-w=
+idth: 100% !important;margin: 0 auto;"></a></td><td style=3D"text-align: ce=
+nter;"></td></tr></tbody></table></figure></div><h3 class=3D"header-anchor-=
+post" style=3D"position: relative;font-family: 'SF Pro Display',-apple-syst=
+em-headline,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,He=
+lvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Sym=
+bol';font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-sm=
+oothing: antialiased;-webkit-appearance: optimizelegibility;-moz-appearance=
+: optimizelegibility;appearance: optimizelegibility;margin: 1em 0 0.625em 0=
+;color: rgb(54,55,55);line-height: 1.16em;font-size: 1.375em;"><strong>Befo=
+re and After DI: How You Use the Code</strong></h3><p style=3D"margin: 0 0 =
+20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>The r=
+eal difference isn&#8217;t just how the service is </span><em><strong>defin=
+ed</strong></em><span>, but how it&#8217;s </span><em><strong>consumed</str=
+ong></em><span>.</span></p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><strong>Before DI, we use direct im=
+ports (hidden dependencies):</strong></p><pre style=3D"background: rgb(255,=
+255,255);padding: 20px;margin-top: 0;margin-bottom: 20px;outline: 1px solid=
+ rgb(0,0,0,.1);outline-offset: -1px;border-radius: 12px;box-sizing: border-=
+box;white-space: pre-wrap;font-family: monospace;font-size: 13px;line-heigh=
+t: 24px;font-weight: 500;color: rgb(54,55,55);"><code>// Somewhere in your =
+route handler or controller
+import { createUser } from &#8216;./userService&#8217;;
+
+// Just call it. What does it need? Who knows.
+// Knex? Email service? Logger? You can&#8217;t tell from here.
+const user =3D await createUser({ email: &#8216;alice@example.com&#8217;, n=
+ame: &#8216;Alice&#8217; });</code></pre><p style=3D"margin: 0 0 20px 0;col=
+or: rgb(54,55,55);line-height: 26px;font-size: 16px;">Dependencies are invi=
+sible.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: =
+26px;font-size: 16px;">The function looks simple, but it&#8217;s secretly r=
+eaching into the module graph for a database client, an email service, and =
+a logger.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-heigh=
+t: 26px;font-size: 16px;">You only discover this when something breaks or w=
+hen you try to test it.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,=
+55);line-height: 26px;font-size: 16px;"><strong>After DI, we use Factory + =
+DI (explicit dependencies):</strong></p><pre style=3D"background: rgb(255,2=
+55,255);padding: 20px;margin-top: 0;margin-bottom: 20px;outline: 1px solid =
+rgb(0,0,0,.1);outline-offset: -1px;border-radius: 12px;box-sizing: border-b=
+ox;white-space: pre-wrap;font-family: monospace;font-size: 13px;line-height=
+: 24px;font-weight: 500;color: rgb(54,55,55);"><code>// In your composition=
+ root or setup code
+import { createUserService } from &#8216;./userService&#8217;;
+import { createUserRepo } from &#8216;./repos/userRepo&#8217;;
+import { createEmailService } from &#8216;./infra/email&#8217;;
+import { createLogger } from &#8216;./infra/logger&#8217;;
+
+// Dependencies are explicit at creation time
+const userService =3D createUserService(
+  createUserRepo(knex),
+  createEmailService({ apiKey: process.env.SENDGRID_KEY! }),
+  createLogger({ level: &#8216;info&#8217; })
+);
+
+// Now use it &#8212; the service is fully configured
+const user =3D await userService.createUser({ email: &#8216;alice@example.c=
+om&#8217;, name: &#8216;Alice&#8217; });</code></pre><p style=3D"margin: 0 =
+0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Yes, the =
+setup is more verbose. But now you can see every dependency. The function s=
+ignature tells the truth.</p><p style=3D"margin: 0 0 20px 0;color: rgb(54,5=
+5,55);line-height: 26px;font-size: 16px;">When you read the composition roo=
+t, you know exactly what each service needs, no grepping through imports, n=
+o surprises.</p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=
+=3D"margin: 32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border:=
+ none;"></div><h2 class=3D"header-anchor-post" style=3D"position: relative;=
+font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-syste=
+m,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Co=
+lor Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-fon=
+t-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appea=
+rance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: o=
+ptimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height:=
+ 1.16em;font-size: 1.625em;"><strong>Step 2: The Composition Root</strong><=
+span> </span></h2><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-=
+height: 26px;font-size: 16px;">If every service takes its dependencies as a=
+rguments, where do you actually wire everything together?</p><p style=3D"ma=
+rgin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><=
+span>At the </span><strong>composition root</strong><span>, the entry point=
+ of your application. This is the one place that knows about all the concre=
+te implementations.</span></p><pre style=3D"background: rgb(255,255,255);pa=
+dding: 20px;margin-top: 0;margin-bottom: 20px;outline: 1px solid rgb(0,0,0,=
+=2E1);outline-offset: -1px;border-radiu=
+s: 12px;box-sizing: border-box;white-s=
+pace: pre-wrap;font-family: monospace;font-size: 13px;line-height: 24px;fon=
+t-weight: 500;color: rgb(54,55,55);"><code>// composition-root.ts
+import Knex from &#8216;knex&#8217;;
+import { createKnexDatabase } from &#8216;./infra/knexDatabase&#8217;;
+import { createUserService } from &#8216;./services/userService&#8217;;
+import { createOrderService } from &#8216;./services/orderService&#8217;;
+import { createEmailService } from &#8216;./infra/email&#8217;;
+import { createLogger } from &#8216;./infra/logger&#8217;;
+
+export function createApp() {
+  // Infrastructure
+  const knex =3D Knex({
+    client: &#8216;pg&#8217;,
+    connection: process.env.DATABASE_URL,
+  });
+  const db =3D createKnexDatabase(knex);
+  const email =3D createEmailService({ apiKey: process.env.SENDGRID_KEY! })=
+;
+  const logger =3D createLogger({ level: &#8216;info&#8217; });
+
+  // Repositories
+  const userRepo =3D createUserRepo(db);
+  const orderRepo =3D createOrderRepo(db);
+
+  // Services
+  const userService =3D createUserService(userRepo, email, logger);
+  const orderService =3D createOrderService(orderRepo, userService, logger)=
+;
+
+  return { userService, orderService, knex };
+}</code></pre><pre style=3D"background: rgb(255,255,255);padding: 20px;marg=
+in-top: 0;margin-bottom: 20px;outline: 1px solid rgb(0,0,0,.1);outline-offs=
+et: -1px;border-radius: 12px;box-sizing: border-box;white-space: pre-wrap;f=
+ont-family: monospace;font-size: 13px;line-height: 24px;font-weight: 500;co=
+lor: rgb(54,55,55);"><code>// server.ts
+import express from &#8216;express&#8217;;
+import { createApp } from &#8216;./composition-root&#8217;;
+
+const app =3D express();
+const { userService, orderService } =3D createApp();
+
+app.post(&#8217;/users&#8217;, async (req, res) =3D&gt; {
+  const user =3D await userService.createUser(req.body);
+  res.status(201).json(user);
+});</code></pre><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-he=
+ight: 26px;font-size: 16px;">Everything flows downward from one place. No g=
+lobal singletons. No magical auto-wiring. Just functions calling functions.=
+</p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=3D"margin: =
+32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border: none;"></di=
+v><h2 class=3D"header-anchor-post" style=3D"position: relative;font-family:=
+ 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMacSy=
+stemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','=
+Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing:=
+ antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: optim=
+izelegibility;-moz-appearance: optimizelegibility;appearance: optimizelegib=
+ility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;font=
+-size: 1.625em;"><strong>When to Reach for a Container?</strong></h2><p sty=
+le=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: =
+16px;">Manual DI works beautifully for small-to-medium apps.</p><p style=3D=
+"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;=
+">But when you have 20-30+ services with complex dependency graphs, the com=
+position root becomes hard to read and follow.</p><p style=3D"margin: 0 0 2=
+0px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;"><span>I&#821=
+7;ve personally used </span><a href=3D"https://substack.com/redirect/05dcb0=
+df-f114-446f-815e-a54e184701de?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguY=
+KhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54,55,55);text-decora=
+tion: underline;">tsyringe</a><span>. It&#8217;s a lightweight container, e=
+asy to use and configure.</span></p><p style=3D"margin: 0 0 20px 0;color: r=
+gb(54,55,55);line-height: 26px;font-size: 16px;"><a href=3D"https://substac=
+k.com/redirect/05dcb0df-f114-446f-815e-a54e184701de?j=3DeyJ1IjoiMTNlanV2In0=
+=2ETRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUp=
+phZJdWS0w" rel=3D"" style=3D"color: rgb(=
+54,55,55);text-decoration: underline;">tsyringe</a><span> uses decorators a=
+nd </span><code>reflect-metadata</code><span> to inspect constructor parame=
+ters and auto-wire dependencies.</span></p><p style=3D"margin: 0 0 20px 0;c=
+olor: rgb(54,55,55);line-height: 26px;font-size: 16px;">It supports singlet=
+on, transient, and scoped lifecycles, with strong TypeScript support.</p><p=
+ style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-si=
+ze: 16px;">To be honest, I didn&#8217;t have any trouble with it.</p><p sty=
+le=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: =
+16px;">Here is a simple example:</p><pre style=3D"background: rgb(255,255,2=
+55);padding: 20px;margin-top: 0;margin-bottom: 20px;outline: 1px solid rgb(=
+0,0,0,.1);outline-offset: -1px;border-radius: 12px;box-sizing: border-box;w=
+hite-space: pre-wrap;font-family: monospace;font-size: 13px;line-height: 24=
+px;font-weight: 500;color: rgb(54,55,55);"><code>import &#8216;reflect-meta=
+data&#8217;;
+import { container, injectable, inject, singleton } from &#8216;tsyringe&#8=
+217;;
+import Knex from &#8216;knex&#8217;;
+
+@singleton()
+class KnexDatabase implements Database {
+  private knex =3D Knex({ client: &#8216;pg&#8217;, connection: process.env=
+=2EDATABASE_URL });
+
+  users =3D {
+    create: async (data: CreateUserInput) =3D&gt; {
+      const [user] =3D await this.knex(&#8217;users&#8217;).insert(data).re=
+turning(&#8217;*&#8217;);
+      return user;
+    },
+    findById: async (id: string) =3D&gt; {
+      return this.knex(&#8217;users&#8217;).where({ id }).first() ?? null;
+    },
+  };
+}
+
+container.register(&#8217;Database&#8217;, { useClass: KnexDatabase });
+
+@injectable()
+class UserService {
+  constructor(@inject(&#8217;Database&#8217;) private db: Database) {}
+
+  async createUser(data: CreateUserInput) {
+    return this.db.users.create(data);
+  }
+}
+
+// Resolve with all dependencies auto-wired
+const userService =3D container.resolve(UserService);</code></pre><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;">If you&#8217;re not sure whether you need a container, start simple wi=
+thout an additional framework.</p><p style=3D"margin: 0 0 20px 0;color: rgb=
+(54,55,55);line-height: 26px;font-size: 16px;">You can easily add it later =
+if needed.</p><div style=3D"font-size: 16px;line-height: 26px;"><hr style=
+=3D"margin: 32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border:=
+ none;"></div><h2 class=3D"header-anchor-post" style=3D"position: relative;=
+font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-syste=
+m,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Co=
+lor Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-fon=
+t-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appea=
+rance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: o=
+ptimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height:=
+ 1.16em;font-size: 1.625em;"><strong>The Testing Payoff</strong></h2><p sty=
+le=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: =
+16px;">Here&#8217;s why all this matters. Let&#8217;s compare full test fil=
+es side by side.</p><h3 class=3D"header-anchor-post" style=3D"position: rel=
+ative;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple=
+-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Ap=
+ple Color Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webk=
+it-font-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit=
+-appearance: optimizelegibility;-moz-appearance: optimizelegibility;appeara=
+nce: optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-h=
+eight: 1.16em;font-size: 1.375em;"><strong>Before: Testing with Module Mock=
+ing</strong></h3><pre style=3D"background: rgb(255,255,255);padding: 20px;m=
+argin-top: 0;margin-bottom: 20px;outline: 1px solid rgb(0,0,0,.1);outline-o=
+ffset: -1px;border-radius: 12px;box-sizing: border-box;white-space: pre-wra=
+p;font-family: monospace;font-size: 13px;line-height: 24px;font-weight: 500=
+;color: rgb(54,55,55);"><code>import { describe, it, expect, vi, beforeEach=
+ } from &#8216;vitest&#8217;;
+
+// Mock every dependency by file path &#8212; get any path wrong and it sil=
+ently breaks
+vi.mock(&#8217;../lib/database&#8217;, () =3D&gt; ({
+  knex: vi.fn().mockReturnValue({
+    insert: vi.fn().mockReturnValue({
+      returning: vi.fn().mockResolvedValue([{ id: &#8216;1&#8217;, email: &=
+#8216;test@example.com&#8217; }]),
+    }),
+  }),
+}));
+
+vi.mock(&#8217;../lib/email&#8217;, () =3D&gt; ({
+  sendEmail: vi.fn(),
+}));
+
+vi.mock(&#8217;../lib/logger&#8217;, () =3D&gt; ({
+  logger: {
+    info: vi.fn(),
+  },
+}));
+
+// Now import the function AFTER the mocks (order matters!)
+import { createUser } from &#8216;./userService&#8217;;
+import { knex } from &#8216;../lib/database&#8217;;
+import { sendEmail } from &#8216;../lib/email&#8217;;
+
+describe(&#8217;createUser&#8217;, () =3D&gt; {
+  beforeEach(() =3D&gt; {
+    vi.clearAllMocks();
+  });
+
+  it(&#8217;creates a user and sends a welcome email&#8217;, async () =3D&g=
+t; {
+    const user =3D await createUser({ email: &#8216;test@example.com&#8217;=
+, name: &#8216;Test&#8217; });
+
+    expect(user.id).toBe(&#8217;1&#8217;);
+    expect(sendEmail).toHaveBeenCalledWith(&#8217;test@example.com&#8217;, =
+&#8216;Welcome!&#8217;);
+  });
+});</code></pre><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-he=
+ight: 26px;font-size: 16px;">Problems everywhere:</p><ul style=3D"margin-to=
+p: 0;padding: 0;"><li style=3D"margin: 8px 0 0 32px;mso-special-format: bul=
+let;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom: 0;b=
+ox-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><strong=
+>Path-coupled</strong><span>: rename </span><code>../lib/database</code><sp=
+an> to </span><code>../db/database</code><span> and the mock breaks silentl=
+y &#8212; the test passes but uses the real module</span></p></li><li style=
+=3D"margin: 8px 0 0 32px;mso-special-format: bullet;"><p style=3D"color: rg=
+b(54,55,55);line-height: 26px;margin-bottom: 0;box-sizing: border-box;paddi=
+ng-left: 4px;font-size: 16px;margin: 0;"><strong>Import order matters</stro=
+ng><span>: </span><code>vi.mock</code><span> calls are hoisted, but if you =
+get it wrong, debugging is miserable</span></p></li><li style=3D"margin: 8p=
+x 0 0 32px;mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55);li=
+ne-height: 26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;f=
+ont-size: 16px;margin: 0;"><strong>Type-unsafe</strong><span>: you&#8217;re=
+ casting to </span><code>any</code><span> because the mock system doesn&#82=
+17;t know your interfaces</span></p></li><li style=3D"margin: 8px 0 0 32px;=
+mso-special-format: bullet;"><p style=3D"color: rgb(54,55,55);line-height: =
+26px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size: 1=
+6px;margin: 0;"><strong>Framework-locked</strong><span>: switch from Vitest=
+ to Node&#8217;s built-in test runner? Rewrite every mock</span></p></li></=
+ul><h3 class=3D"header-anchor-post" style=3D"position: relative;font-family=
+: 'SF Pro Display',-apple-system-headline,system-ui,-apple-system,BlinkMacS=
+ystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji',=
+'Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-font-smoothing=
+: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appearance: opti=
+mizelegibility;-moz-appearance: optimizelegibility;appearance: optimizelegi=
+bility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height: 1.16em;fon=
+t-size: 1.375em;"><strong>After: Testing with DI</strong></h3><pre style=3D=
+"background: rgb(255,255,255);padding: 20px;margin-top: 0;margin-bottom: 20=
+px;outline: 1px solid rgb(0,0,0,.1);outline-offset: -1px;border-radius: 12p=
+x;box-sizing: border-box;white-space: pre-wrap;font-family: monospace;font-=
+size: 13px;line-height: 24px;font-weight: 500;color: rgb(54,55,55);"><code>=
+import { describe, it, expect } from &#8216;vitest&#8217;;
+import { createUserService } from &#8216;./userService&#8217;;
+
+describe(&#8217;createUser&#8217;, () =3D&gt; {
+  it(&#8217;creates a user and sends a welcome email&#8217;, async () =3D&g=
+t; {
+    // Plain objects that satisfy the interface &#8212; no mock framework n=
+eeded
+    const fakeRepo =3D {
+      create: async (data: any) =3D&gt; ({ id: &#8216;1&#8217;, email: data=
+=2Eemail }),
+    };
+    const fakeEmail =3D {
+      send: async () =3D&gt; {},
+    };
+    const fakeLogger =3D {
+      info: () =3D&gt; {},
+    };
+
+    // Track calls manually if needed (or use vi.fn() &#8212; your choice, =
+not a requirement)
+    const emailCalls: any[] =3D [];
+    fakeEmail.send =3D async (to: string, subject: string) =3D&gt; {
+      emailCalls.push({ to, subject });
+    };
+
+    const service =3D createUserService(fakeRepo, fakeEmail, fakeLogger);
+    const user =3D await service.createUser({ email: &#8216;test@example.co=
+m&#8217;, name: &#8216;Test&#8217; });
+
+    expect(user.id).toBe(&#8217;1&#8217;);
+    expect(emailCalls).toEqual([{ to: &#8216;test@example.com&#8217;, subje=
+ct: &#8216;Welcome!&#8217; }]);
+  });
+
+  it(&#8217;logs user creation&#8217;, async () =3D&gt; {
+    const logs: string[] =3D [];
+    const service =3D createUserService(
+      { create: async (data: any) =3D&gt; ({ id: &#8216;42&#8217;, email: d=
+ata.email }) },
+      { send: async () =3D&gt; {} },
+      { info: (msg: string) =3D&gt; logs.push(msg) }
+    );
+
+    await service.createUser({ email: &#8216;test@example.com&#8217;, name:=
+ &#8216;Test&#8217; });
+
+    expect(logs).toEqual([&#8217;User created: 42&#8217;]);
+  });
+});</code></pre><p style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-he=
+ight: 26px;font-size: 16px;">The difference:</p><ul style=3D"margin-top: 0;=
+padding: 0;"><li style=3D"margin: 8px 0 0 32px;mso-special-format: bullet;"=
+><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom: 0;box-si=
+zing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><strong>No m=
+ocking framework required</strong><span>: plain objects that match the inte=
+rface</span></p></li><li style=3D"margin: 8px 0 0 32px;mso-special-format: =
+bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom: =
+0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><str=
+ong>Type-safe</strong><span>: TypeScript checks your fakes against the real=
+ interfaces</span></p></li><li style=3D"margin: 8px 0 0 32px;mso-special-fo=
+rmat: bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bo=
+ttom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;=
+"><strong>No import order tricks</strong><span>: just functions and objects=
+</span></p></li><li style=3D"margin: 8px 0 0 32px;mso-special-format: bulle=
+t;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom: 0;box=
+-sizing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><strong>P=
+ortable</strong><span>: works with Vitest, Jest, Node&#8217;s test runner, =
+or even a plain script</span></p></li><li style=3D"margin: 8px 0 0 32px;mso=
+-special-format: bullet;"><p style=3D"color: rgb(54,55,55);line-height: 26p=
+x;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16px=
+;margin: 0;"><strong>Each test is self-contained</strong><span>: no shared =
+mutable mock state leaks between tests</span></p></li></ul><div class=3D"ca=
+ptioned-image-container-static" style=3D"font-size: 16px;line-height: 26px;=
+margin: 32px auto;"><figure style=3D"width: 100%;margin: 0 auto;"><table cl=
+ass=3D"image-wrapper" width=3D"100%" border=3D"0" cellspacing=3D"0" cellpad=
+ding=3D"0" data-component-name=3D"Image2ToDOMStatic" style=3D"mso-padding-a=
+lt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: center;"></td><td cla=
+ss=3D"content" align=3D"left" width=3D"1456" style=3D"text-align: center;">=
+<a class=3D"image-link" target=3D"_blank" href=3D"https://substack.com/redi=
+rect/c1042faa-4bd5-44e8-92e7-23e7d71e011b?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT=
+3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"position: relative;fl=
+ex-direction: column;align-items: center;padding: 0;width: auto;height: aut=
+o;border: none;text-decoration: none;display: block;margin: 0;"><img class=
+=3D"wide-image" data-attrs=3D"{&quot;src&quot;:&quot;https://substack-post-=
+media.s3.amazonaws.com/public/images/75616c64-f8fd-43a4-b22f-6e5bb4e4c8e3_1=
+658x978.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:nu=
+ll,&quot;imageSize&quot;:null,&quot;height&quot;:859,&quot;width&quot;:1456=
+,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:251097,&quot;alt&quot;:null=
+,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&q=
+uot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:false,&quot;in=
+ternalRedirect&quot;:&quot;https://thetshaped.dev/i/191737097?img=3Dhttps%3=
+A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75616c64-f8=
+fd-43a4-b22f-6e5bb4e4c8e3_1658x978.png&quot;,&quot;isProcessing&quot;:false=
+,&quot;align&quot;:null,&quot;offset&quot;:false}" alt=3D"" width=3D"550" h=
+eight=3D"324.4848901098901" src=3D"https://substackcdn.com/image/fetch/$s_!=
+vQvD!,w_1100,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2F=
+substack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F75616c64-f8fd-43a4=
+-b22f-6e5bb4e4c8e3_1658x978.png" style=3D"border: none !important;vertical-=
+align: middle;display: block;-ms-interpolation-mode: bicubic;height: auto;m=
+argin-bottom: 0;width: auto !important;max-width: 100% !important;margin: 0=
+ auto;"></a></td><td style=3D"text-align: center;"></td></tr></tbody></tabl=
+e></figure></div><div style=3D"font-size: 16px;line-height: 26px;"><hr styl=
+e=3D"margin: 32px 0;padding: 0;height: 1px;background: rgb(0,0,0,.1);border=
+: none;"></div><h2 class=3D"header-anchor-post" style=3D"position: relative=
+;font-family: 'SF Pro Display',-apple-system-headline,system-ui,-apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple C=
+olor Emoji','Segoe UI Emoji','Segoe UI Symbol';font-weight: bold;-webkit-fo=
+nt-smoothing: antialiased;-moz-osx-font-smoothing: antialiased;-webkit-appe=
+arance: optimizelegibility;-moz-appearance: optimizelegibility;appearance: =
+optimizelegibility;margin: 1em 0 0.625em 0;color: rgb(54,55,55);line-height=
+: 1.16em;font-size: 1.625em;"><strong>&#128204; Key Takeaways</strong></h2>=
+<ol style=3D"margin-top: 0;padding: 0;"><li style=3D"margin: 8px 0 0 32px;"=
+><p style=3D"color: rgb(54,55,55);line-height: 26px;margin-bottom: 0;box-si=
+zing: border-box;padding-left: 4px;font-size: 16px;margin: 0;"><strong>Depe=
+ndency Injection isn&#8217;t a framework feature</strong><span> &#8212; it&=
+#8217;s passing arguments to functions. You already know how to do it.</spa=
+n></p></li><li style=3D"margin: 8px 0 0 32px;"><p style=3D"color: rgb(54,55=
+,55);line-height: 26px;margin-bottom: 0;box-sizing: border-box;padding-left=
+: 4px;font-size: 16px;margin: 0;"><strong>Module mocking is a smell.</stron=
+g><span> If you need </span><code>vi.mock()</code><span> to test something,=
+ remember that something has hidden dependencies.</span></p></li><li style=
+=3D"margin: 8px 0 0 32px;"><p style=3D"color: rgb(54,55,55);line-height: 26=
+px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16p=
+x;margin: 0;"><strong>Start with manual DI.</strong><span> Factory function=
+s + a composition root covers 90% of Node.js apps.</span></p></li><li style=
+=3D"margin: 8px 0 0 32px;"><p style=3D"color: rgb(54,55,55);line-height: 26=
+px;margin-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16p=
+x;margin: 0;"><strong>Graduate to a container (tsyringe) when your dependen=
+cy graph gets complex.</strong><span> Not because it&#8217;s &#8220;proper&=
+#8221;, but because it saves maintenance.</span></p></li><li style=3D"margi=
+n: 8px 0 0 32px;"><p style=3D"color: rgb(54,55,55);line-height: 26px;margin=
+-bottom: 0;box-sizing: border-box;padding-left: 4px;font-size: 16px;margin:=
+ 0;"><strong>The real value is testability.</strong><span> DI makes unit te=
+sting trivial, integration testing focused, and your architecture honest ab=
+out its dependencies.</span></p></li></ol><div style=3D"font-size: 16px;lin=
+e-height: 26px;"><hr style=3D"margin: 32px 0;padding: 0;height: 1px;backgro=
+und: rgb(0,0,0,.1);border: none;"></div><div class=3D"subscription-widget-w=
+rap" style=3D"font-size: 16px;line-height: 26px;"><div class=3D"subscriptio=
+n-widget show-subscribe" style=3D"font-size: 16px;direction: ltr !important=
+;font-weight: 400;text-decoration: none;font-family: system-ui,-apple-syste=
+m,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Co=
+lor Emoji','Segoe UI Emoji','Segoe UI Symbol';color: #363737;line-height: 1=
+=2E5;max-width: 560px;margin: 24px auto=
+;align-items: flex-start;display: bloc=
+k;text-align: center;padding: 0px 32px;"><div class=3D"preamble" style=3D"m=
+argin-top: 16px;font-family: system-ui,-apple-system,BlinkMacSystemFont,'Se=
+goe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emo=
+ji','Segoe UI Symbol';font-size: 18px;max-width: 384px;width: fit-content;l=
+ine-height: 22px;display: flex;align-items: center;text-align: center;font-=
+weight: 400;margin-left: auto;margin-right: auto;"><p style=3D"margin: 0 0 =
+20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Subscribe t=
+o get practical tips on React.js, Node.js, and Software Architecture delive=
+red straight to your inbox:</p></div><div class=3D"subscribe-widget is-sign=
+ed-up" data-component-name=3D"SubscribeWidget" style=3D"margin: 0 0 1em;dir=
+ection: ltr;font-size: 16px;line-height: 26px;"><div class=3D"pencraft pc-r=
+eset button-wrapper" style=3D"text-decoration: unset;list-style: none;font-=
+size: 16px;line-height: 26px;text-align: center;cursor: pointer;border-radi=
+us: 4px;"><a class=3D"button subscribe-btn primary" href=3D"https://substac=
+k.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV0c2hhcGVkLmRldi9zdWJzY3JpYmU_dXRtX3=
+NvdXJjZT1wb3N0JnV0bV9jYW1wYWlnbj1lbWFpbC1jaGVja291dCZuZXh0PWh0dHBzJTNBJTJGJ=
+TJGdGhldHNoYXBlZC5kZXYlMkZwJTJGZGVwZW5kZW5jeS1pbmplY3Rpb24taW4tbm9kZWpzLWFu=
+ZC10eXBlc2NyaXB0LWRlcGVuZGVuY3ktaW52ZXJzaW9uLXBhcnQtbm8tYm9keS10ZWFjaGVzLXl=
+vdSZyPTEzZWp1diZ0b2tlbj1leUoxYzJWeVgybGtJam8yTmpFNE16azBNeXdpYVdGMElqb3hOem=
+MwTnpnMk56a3dMQ0psZUhBaU9qRTNOemN6TnpnM09UQXNJbWx6Y3lJNkluQjFZaTB4TlRBNE56T=
+TRJaXdpYzNWaUlqb2lZMmhsWTJ0dmRYUWlmUS5EdkZCaVhxMnhqUm1JWF9qNG54Nl9VZXpReDBa=
+ek81c19XaEN6MkNOajlrIiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo=
+2NjE4Mzk0MywiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIi=
+wic3ViIjoibGluay1yZWRpcmVjdCJ9.-yKARYcmCpDW8Ocvn_94-r53XTQHUj5-PvgaAZAtdFc?=
+&utm_medium=3Demail&utm_source=3Dsubscribe-widget-preamble&utm_content=3D19=
+1737097" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemFont,'=
+Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI E=
+moji','Segoe UI Symbol';display: inline-block;box-sizing: border-box;cursor=
+: pointer;border: none;border-radius: 8px;font-size: 14px;line-height: 20px=
+;font-weight: 600;text-align: center;opacity: 1;outline: none;white-space: =
+nowrap;text-decoration: none !important;margin: 0 auto;background-color: #1=
+11827;color: #ffffff !important;padding: 12px 20px;height: auto;"><span sty=
+le=3D"color: #ffffff;text-decoration: none;">Upgrade to paid</span></a></di=
+v></div></div></div><div class=3D"pullquote" style=3D"font-size: 16px;line-=
+height: 26px;border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1px solid r=
+gb(0,0,0,.1);margin: 32px auto;text-align: center;"><div class=3D"captioned=
+-image-container-static" style=3D"font-size: 16px;line-height: 26px;margin:=
+ 32px auto;margin-top: 0;"><figure style=3D"width: 100%;margin: 0 auto;"><t=
+able class=3D"image-wrapper" width=3D"100%" border=3D"0" cellspacing=3D"0" =
+cellpadding=3D"0" data-component-name=3D"Image2ToDOMStatic" style=3D"mso-pa=
+dding-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: center;"></td>=
+<td class=3D"content" align=3D"left" width=3D"248" style=3D"text-align: cen=
+ter;"><a class=3D"image-link" target=3D"_blank" href=3D"https://substack.co=
+m/redirect/4a6e8071-47b2-4746-b6cd-fcceaeddcd33?j=3DeyJ1IjoiMTNlanV2In0.TRw=
+TjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"position: relat=
+ive;flex-direction: column;align-items: center;padding: 0;width: auto;heigh=
+t: auto;border: none;text-decoration: none;display: block;margin: 0;margin-=
+top: 0;margin-bottom: 0;"><img data-attrs=3D"{&quot;src&quot;:&quot;https:/=
+/substack-post-media.s3.amazonaws.com/public/images/9aea932b-6248-4324-9ec7=
+-68d0bfed782e_800x670.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fulls=
+creen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:670,&quot;wi=
+dth&quot;:800,&quot;resizeWidth&quot;:248,&quot;bytes&quot;:257716,&quot;al=
+t&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,=
+&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;topImage&quot;:fa=
+lse,&quot;internalRedirect&quot;:&quot;https://thetshaped.dev/i/188025481?i=
+mg=3Dhttps%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2=
+Fb8ebf3ac-ad2f-415d-9e32-111e959c8e4e_800x800.png&quot;,&quot;isProcessing&=
+quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" alt=3D"" widt=
+h=3D"248" height=3D"207.7" src=3D"https://substackcdn.com/image/fetch/$s_!c=
+mMn!,w_248,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsu=
+bstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F9aea932b-6248-4324-9=
+ec7-68d0bfed782e_800x670.png" style=3D"border: none !important;vertical-ali=
+gn: middle;display: block;-ms-interpolation-mode: bicubic;height: auto;marg=
+in-bottom: 0;width: auto !important;max-width: 100% !important;margin: 0 au=
+to;"></a></td><td style=3D"text-align: center;"></td></tr></tbody></table><=
+/figure></div><p style=3D"color: rgb(54,55,55);line-height: 26px;font-size:=
+ 16px;margin: 32px 0;text-align: center;font-weight: 500;font-style: italic=
+;"><strong><span>Follow me on </span><a href=3D"https://substack.com/redire=
+ct/33606237-3647-4daf-a23e-6cf3b8d78651?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3m=
+moffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54,55,55);te=
+xt-decoration: underline;">LinkedIn</a></strong><span> | </span><strong><a =
+href=3D"https://substack.com/redirect/d1495c92-e6cb-4098-b762-8699a71749ca?=
+j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D=
+"" style=3D"color: rgb(54,55,55);text-decoration: underline;">Twitter(X)</a=
+></strong><span> |</span><strong><span> </span><a href=3D"https://substack.=
+com/redirect/ca0f719d-1438-4725-b804-d9a6489df176?j=3DeyJ1IjoiMTNlanV2In0.T=
+RwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"color: rgb(54=
+,55,55);text-decoration: underline;">Threads</a></strong></p></div><p style=
+=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16=
+px;">Thank you for supporting this newsletter.</p><p style=3D"margin: 0 0 2=
+0px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">Consider sha=
+ring this post with your friends and get rewards.</p><p style=3D"margin: 0 =
+0 20px 0;color: rgb(54,55,55);line-height: 26px;font-size: 16px;">You are t=
+he best! &#128591;</p><div class=3D"captioned-image-container-static" style=
+=3D"font-size: 16px;line-height: 26px;margin: 32px auto;"><figure style=3D"=
+width: 100%;margin: 0 auto;"><table class=3D"image-wrapper" width=3D"100%" =
+border=3D"0" cellspacing=3D"0" cellpadding=3D"0" data-component-name=3D"Ima=
+ge2ToDOMStatic" style=3D"mso-padding-alt: 1em 0 1.6em;"><tbody><tr><td styl=
+e=3D"text-align: center;"></td><td class=3D"content" align=3D"left" width=
+=3D"800" style=3D"text-align: center;"><a class=3D"image-link" target=3D"_b=
+lank" href=3D"https://substack.com/redirect/1aeac514-d51c-46b4-9756-a6f4a96=
+ebc7f?j=3DeyJ1IjoiMTNlanV2In0.TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" =
+rel=3D"" style=3D"position: relative;flex-direction: column;align-items: ce=
+nter;padding: 0;width: auto;height: auto;border: none;text-decoration: none=
+;display: block;margin: 0;"><img class=3D"wide-image" data-attrs=3D"{&quot;=
+src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/=
+a356e02d-1b11-4eca-81ea-3db29a595cb9_800x500.jpeg&quot;,&quot;srcNoWatermar=
+k&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;h=
+eight&quot;:500,&quot;width&quot;:800,&quot;resizeWidth&quot;:null,&quot;by=
+tes&quot;:83253,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot=
+;:&quot;image/jpeg&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:tru=
+e,&quot;topImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://the=
+tshaped.dev/i/188025481?img=3Dhttps%3A%2F%2Fsubstack-post-media.s3.amazonaw=
+s.com%2Fpublic%2Fimages%2Fa356e02d-1b11-4eca-81ea-3db29a595cb9_800x500.jpeg=
+&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&q=
+uot;:false}" alt=3D"" width=3D"550" height=3D"343.75" src=3D"https://substa=
+ckcdn.com/image/fetch/$s_!EvJY!,w_1100,c_limit,f_auto,q_auto:good,fl_progre=
+ssive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fi=
+mages%2Fa356e02d-1b11-4eca-81ea-3db29a595cb9_800x500.jpeg" style=3D"border:=
+ none !important;vertical-align: middle;display: block;-ms-interpolation-mo=
+de: bicubic;height: auto;margin-bottom: 0;width: auto !important;max-width:=
+ 100% !important;margin: 0 auto;"></a></td><td style=3D"text-align: center;=
+"></td></tr></tbody></table></figure></div><p class=3D"button-wrapper" data=
+-attrs=3D"{&quot;url&quot;:&quot;https://substack.com/app-link/post?publica=
+tion_id=3D1508738&post_id=3D191737097&utm_source=3Dsubstack&utm_medium=3Dem=
+ail&utm_content=3Dshare&utm_campaign=3Demail-share&action=3Dshare&triggerSh=
+are=3Dtrue&isFreemail=3Dtrue&r=3D13ejuv&token=3DeyJ1c2VyX2lkIjo2NjE4Mzk0Myw=
+icG9zdF9pZCI6MTkxNzM3MDk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cCI6MTc3NzM3ODc5MCwiaX=
+NzIjoicHViLTE1MDg3MzgiLCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.ocKaHkOyuwE4YYap0wweM=
+g7LPB7gN8iQVwuE9rDvVJM&quot;,&quot;text&quot;:&quot;Share&quot;,&quot;actio=
+n&quot;:null,&quot;class&quot;:null}" data-component-name=3D"ButtonCreateBu=
+tton" style=3D"margin: 0 0 20px 0;color: rgb(54,55,55);line-height: 26px;fo=
+nt-size: 16px;text-align: center;cursor: pointer;border-radius: 4px;"><a cl=
+ass=3D"button primary" href=3D"https://substack.com/app-link/post?publicati=
+on_id=3D1508738&post_id=3D191737097&utm_source=3Dsubstack&utm_medium=3Demai=
+l&utm_content=3Dshare&utm_campaign=3Demail-share&action=3Dshare&triggerShar=
+e=3Dtrue&isFreemail=3Dtrue&r=3D13ejuv&token=3DeyJ1c2VyX2lkIjo2NjE4Mzk0Mywic=
+G9zdF9pZCI6MTkxNzM3MDk3LCJpYXQiOjE3NzQ3ODY3OTAsImV4cCI6MTc3NzM3ODc5MCwiaXNz=
+IjoicHViLTE1MDg3MzgiLCJzdWIiOiJwb3N0LXJlYWN0aW9uIn0.ocKaHkOyuwE4YYap0wweMg7=
+LPB7gN8iQVwuE9rDvVJM" rel=3D"" style=3D"font-family: system-ui,-apple-syste=
+m,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Co=
+lor Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;box-siz=
+ing: border-box;cursor: pointer;border: none;border-radius: 8px;font-size: =
+14px;line-height: 20px;font-weight: 600;text-align: center;margin: 0;opacit=
+y: 1;outline: none;white-space: nowrap;color: #ffffff !important;text-decor=
+ation: none !important;background-color: #111827;padding: 12px 20px;height:=
+ auto;"><span style=3D"color: #ffffff;text-decoration: none;">Share</span><=
+/a></p><div class=3D"pullquote" style=3D"font-size: 16px;line-height: 26px;=
+border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1px solid rgb(0,0,0,.1);=
+margin: 32px auto;margin-bottom: 0;text-align: center;"><div class=3D"capti=
+oned-image-container-static" style=3D"font-size: 16px;line-height: 26px;mar=
+gin: 32px auto;margin-top: 0;"><figure style=3D"width: 100%;margin: 0 auto;=
+"><table class=3D"image-wrapper" width=3D"100%" border=3D"0" cellspacing=3D=
+"0" cellpadding=3D"0" data-component-name=3D"Image2ToDOMStatic" style=3D"ms=
+o-padding-alt: 1em 0 1.6em;"><tbody><tr><td style=3D"text-align: center;"><=
+/td><td class=3D"content" align=3D"left" width=3D"48" style=3D"text-align: =
+center;"><a class=3D"image-link" target=3D"_blank" href=3D"https://substack=
+=2Ecom/redirect/39d7b5b5-f065-4f65-908=
+b-0b2c1b884553?j=3DeyJ1IjoiMTNlanV2In0.=
+TRwTjGQpT3mmoffvWguYKhmiXfEGLhcrUpphZJdWS0w" rel=3D"" style=3D"position: re=
+lative;flex-direction: column;align-items: center;padding: 0;width: auto;he=
+ight: auto;border: none;text-decoration: none;display: block;margin: 0;marg=
+in-top: 0;margin-bottom: 0;"><img data-attrs=3D"{&quot;src&quot;:&quot;http=
+s://substack-post-media.s3.amazonaws.com/public/images/39609b45-f68c-4557-8=
+772-8e2a45182842_500x600.gif&quot;,&quot;srcNoWatermark&quot;:null,&quot;fu=
+llscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:600,&quot=
+;width&quot;:500,&quot;resizeWidth&quot;:48,&quot;bytes&quot;:7028,&quot;al=
+t&quot;:&quot;&quot;,&quot;title&quot;:&quot;&quot;,&quot;type&quot;:&quot;=
+image/gif&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:true,&quot;t=
+opImage&quot;:false,&quot;internalRedirect&quot;:&quot;https://thetshaped.d=
+ev/i/188785536?img=3Dhttps%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fp=
+ublic%2Fimages%2F39609b45-f68c-4557-8772-8e2a45182842_500x600.gif&quot;,&qu=
+ot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false=
+}" alt=3D"" title=3D"" width=3D"48" height=3D"57.6" src=3D"https://substack=
+cdn.com/image/fetch/$s_!UzWz!,w_48,c_limit,f_auto,q_auto:good,fl_progressiv=
+e:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimage=
+s%2F39609b45-f68c-4557-8772-8e2a45182842_500x600.gif" style=3D"border: none=
+ !important;vertical-align: middle;display: block;-ms-interpolation-mode: b=
+icubic;height: auto;margin-bottom: 0;width: auto !important;max-width: 100%=
+ !important;margin: 0 auto;"></a></td><td style=3D"text-align: center;"></t=
+d></tr></tbody></table></figure></div><p style=3D"color: rgb(54,55,55);line=
+-height: 26px;font-size: 16px;margin: 32px 0;font-weight: 500;font-style: i=
+talic;text-align: center"><em><strong>Press the Like button if you found th=
+is post helpful</strong></em></p></div></div></div><div class=3D"postscript=
+-placeholder" style=3D"margin: 32px 0 0;width: 100%;box-sizing: border-box;=
+font-size: 16px;line-height: 26px;"></div><table class=3D"email-ufi-2-botto=
+m" role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cell=
+padding=3D"0" style=3D"border-top: 1px solid rgb(0,0,0,.1);border-bottom: 1=
+px solid rgb(0,0,0,.1);min-width: 100%;"><tbody><tr height=3D"16"><td heigh=
+t=3D"16" style=3D"font-size:0px;line-height:0;">&nbsp;</td></tr><tr><td><ta=
+ble role=3D"presentation" width=3D"100%" border=3D"0" cellspacing=3D"0" cel=
+lpadding=3D"0"><tbody><tr><td><table role=3D"presentation" width=3D"auto" b=
+order=3D"0" cellspacing=3D"0" cellpadding=3D"0" style=3D"margin:0 auto;"><t=
+body><tr><td style=3D"vertical-align:middle;"><table role=3D"presentation" =
+width=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr>=
+<td align=3D"center"><a class=3D"email-button-outline" href=3D"https://subs=
+tack.com/app-link/post?publication_id=3D1508738&post_id=3D191737097&utm_sou=
+rce=3Dsubstack&isFreemail=3Dtrue&submitLike=3Dtrue&token=3DeyJ1c2VyX2lkIjo2=
+NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3MDk3LCJyZWFjdGlvbiI6IuKdpCIsImlhdCI6MTc3NDc=
+4Njc5MCwiZXhwIjoxNzc3Mzc4NzkwLCJpc3MiOiJwdWItMTUwODczOCIsInN1YiI6InJlYWN0aW=
+9uIn0.eowVmKjTY4e0PhEishN45jJxVeZ1XpYPgf6otQMfMAA&utm_medium=3Demail&utm_ca=
+mpaign=3Demail-reaction&r=3D13ejuv" style=3D"font-family: system-ui,-apple-=
+system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'App=
+le Color Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;fo=
+nt-weight: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-t=
+ransform: uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;tex=
+t-decoration: none;color: rgb(119,119,119);"><img class=3D"icon" src=3D"htt=
+ps://substackcdn.com/image/fetch/$s_!PeVs!,w_36,c_scale,f_png,q_auto:good,f=
+l_progressive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2FLucideHeart%3Fv%3D4=
+%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" widt=
+h=3D"18" height=3D"18" style=3D"margin-right: 8px;min-width: 18px;min-heigh=
+t: 18px;border: none;vertical-align: middle;max-width: 18px" alt=3D""><span=
+ class=3D"email-button-text" style=3D"vertical-align: middle;">Like</span><=
+/a></td></tr></tbody></table></td><td width=3D"8" style=3D"min-width:8px;">=
+</td><td style=3D"vertical-align:middle;"><table role=3D"presentation" widt=
+h=3D"auto" border=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td =
+align=3D"center"><a class=3D"email-button-outline" href=3D"https://substack=
+=2Ecom/app-link/post?publication_id=3D1=
+508738&post_id=3D191737097&utm_source=
+=3Dsubstack&utm_medium=3Demail&isFreemail=3Dtrue&comments=3Dtrue&token=3Dey=
+J1c2VyX2lkIjo2NjE4Mzk0MywicG9zdF9pZCI6MTkxNzM3MDk3LCJpYXQiOjE3NzQ3ODY3OTAsI=
+mV4cCI6MTc3NzM3ODc5MCwiaXNzIjoicHViLTE1MDg3MzgiLCJzdWIiOiJwb3N0LXJlYWN0aW9u=
+In0.ocKaHkOyuwE4YYap0wweMg7LPB7gN8iQVwuE9rDvVJM&r=3D13ejuv&utm_campaign=3De=
+mail-half-magic-comments&action=3Dpost-comment&utm_source=3Dsubstack&utm_me=
+dium=3Demail" style=3D"font-family: system-ui,-apple-system,BlinkMacSystemF=
+ont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe=
+ UI Emoji','Segoe UI Symbol';display: inline-block;font-weight: 500;border:=
+ 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transform: uppercase;fo=
+nt-size: 12px;line-height: 12px;padding: 9px 14px;text-decoration: none;col=
+or: rgb(119,119,119);"><img class=3D"icon" src=3D"https://substackcdn.com/i=
+mage/fetch/$s_!x1tS!,w_36,c_scale,f_png,q_auto:good,fl_progressive:steep/ht=
+tps%3A%2F%2Fsubstack.com%2Ficon%2FLucideComments%3Fv%3D4%26height%3D36%26fi=
+ll%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2" width=3D"18" height=3D"=
+18" style=3D"margin-right: 8px;min-width: 18px;min-height: 18px;border: non=
+e;vertical-align: middle;max-width: 18px" alt=3D""><span class=3D"email-but=
+ton-text" style=3D"vertical-align: middle;">Comment</span></a></td></tr></t=
+body></table></td><td width=3D"8" style=3D"min-width:8px;"></td><td style=
+=3D"vertical-align:middle;"><table role=3D"presentation" width=3D"auto" bor=
+der=3D"0" cellspacing=3D"0" cellpadding=3D"0"><tbody><tr><td align=3D"cente=
+r"><a class=3D"email-button-outline" href=3D"https://substack.com/redirect/=
+2/eyJlIjoiaHR0cHM6Ly9vcGVuLnN1YnN0YWNrLmNvbS9wdWIvcGV0YXJpdmFub3Z2OS9wL2Rlc=
+GVuZGVuY3ktaW5qZWN0aW9uLWluLW5vZGVqcy1hbmQtdHlwZXNjcmlwdC1kZXBlbmRlbmN5LWlu=
+dmVyc2lvbi1wYXJ0LW5vLWJvZHktdGVhY2hlcy15b3U_dXRtX3NvdXJjZT1zdWJzdGFjayZ1dG1=
+fbWVkaXVtPWVtYWlsJnV0bV9jYW1wYWlnbj1lbWFpbC1yZXN0YWNrLWNvbW1lbnQmYWN0aW9uPX=
+Jlc3RhY2stY29tbWVudCZyPTEzZWp1diZ0b2tlbj1leUoxYzJWeVgybGtJam8yTmpFNE16azBNe=
+XdpY0c5emRGOXBaQ0k2TVRreE56TTNNRGszTENKcFlYUWlPakUzTnpRM09EWTNPVEFzSW1WNGND=
+STZNVGMzTnpNM09EYzVNQ3dpYVhOeklqb2ljSFZpTFRFMU1EZzNNemdpTENKemRXSWlPaUp3YjN=
+OMExYSmxZV04wYVc5dUluMC5vY0thSGtPeXV3RTRZWWFwMHd3ZU1nN0xQQjdnTjhpUVZ3dUU5ck=
+R2VkpNIiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0Mywia=
+WF0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoibGlu=
+ay1yZWRpcmVjdCJ9.tU_0ZvrRUszh4hxxlhYx5mACOrihpJVtC1Hw1I4iWpE?&utm_source=3D=
+substack&utm_medium=3Demail" style=3D"font-family: system-ui,-apple-system,=
+BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Colo=
+r Emoji','Segoe UI Emoji','Segoe UI Symbol';display: inline-block;font-weig=
+ht: 500;border: 1px solid rgb(0,0,0,.1);border-radius: 9999px;text-transfor=
+m: uppercase;font-size: 12px;line-height: 12px;padding: 9px 14px;text-decor=
+ation: none;color: rgb(119,119,119);"><img class=3D"icon" src=3D"https://su=
+bstackcdn.com/image/fetch/$s_!ubXF!,w_36,c_scale,f_png,q_auto:good,fl_progr=
+essive:steep/https%3A%2F%2Fsubstack.com%2Ficon%2Fnotes__NoteRestackIcon%3Fv=
+%3D4%26height%3D36%26fill%3Dnone%26stroke%3D%2523808080%26strokeWidth%3D2%2=
+6strokeLinecap%3Dround%26strokeLinejoin%3Dround" width=3D"18" height=3D"18"=
+ alt=3D"" style=3D"margin-right: 8px;min-width: 18px;min-height: 18px;max-w=
+idth: 550px;border: none !important;vertical-align: middle;"><span class=3D=
+"email-button-text" style=3D"vertical-align: middle;">Restack</span></a></t=
+d></tr></tbody></table></td></tr></tbody></table></td><td align=3D"right"><=
+table role=3D"presentation" width=3D"auto" border=3D"0" cellspacing=3D"0" c=
+ellpadding=3D"0"><tbody><tr></tr></tbody></table></td></tr></tbody></table>=
+</td></tr><tr height=3D"16"><td height=3D"16" style=3D"font-size:0px;line-h=
+eight:0;">&nbsp;</td></tr></tbody></table><div class=3D"footer footer-ZM59B=
+M" style=3D"color: rgb(119,119,119);text-align: center;font-size: 16px;line=
+-height: 26px;padding: 24px0;"><div style=3D"font-size: 16px;line-height: 2=
+6px;padding-bottom: 24px"><p class=3D"pencraft pc-reset color-secondary-ls1=
+g8s size-12-mmZ61m reset-IxiVJZ small meta-B2bqa5" style=3D"list-style: non=
+e;font-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto=
+,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI =
+Symbol';padding-bottom: 0;font-size: 12px;line-height: 16px;margin: 0;color=
+: rgb(119,119,119);text-decoration: unset;">&#169; 2026 <span>Petar Ivanov<=
+/span><br>548 Market Street PMB 72296, San Francisco, CA 94104 <br><a href=
+=3D"https://substack.com/redirect/2/eyJlIjoiaHR0cHM6Ly90aGV0c2hhcGVkLmRldi9=
+hY3Rpb24vZGlzYWJsZV9lbWFpbD90b2tlbj1leUoxYzJWeVgybGtJam8yTmpFNE16azBNeXdpY0=
+c5emRGOXBaQ0k2TVRreE56TTNNRGszTENKcFlYUWlPakUzTnpRM09EWTNPVEFzSW1WNGNDSTZNV=
+Gd3TmpNeU1qYzVNQ3dpYVhOeklqb2ljSFZpTFRFMU1EZzNNemdpTENKemRXSWlPaUprYVhOaFlt=
+eGxYMlZ0WVdsc0luMC5WbU8yZkI0TWJfX2stcGhRanYydU1kcjRlNE1iNElYanI5T01uejNwUVU=
+4IiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0MywiaWF0Ij=
+oxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoibGluay1yZ=
+WRpcmVjdCJ9.AT_EL8ZAgp6NjFFNlW48ZS1o_tDicEVwAMJOzscyQi4?" style=3D"text-dec=
+oration: underline;color: rgb(119,119,119);"><span style=3D"color: rgb(119,=
+119,119);text-decoration: underline;">Unsubscribe</span></a></p></div><p cl=
+ass=3D"footerSection-EHR0jG small powered-by-substack" style=3D"padding: 0 =
+24px;font-size: 12px;line-height: 20px;margin: 0;color: rgb(119,119,119);fo=
+nt-family: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Hel=
+vetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symb=
+ol';padding-bottom: 0;margin-top: 0;"><a href=3D"https://substack.com/redir=
+ect/2/eyJlIjoiaHR0cHM6Ly9zdWJzdGFjay5jb20vc2lnbnVwP3V0bV9zb3VyY2U9c3Vic3RhY=
+2smdXRtX21lZGl1bT1lbWFpbCZ1dG1fY29udGVudD1mb290ZXImdXRtX2NhbXBhaWduPWF1dG9m=
+aWxsZWQtZm9vdGVyJmZyZWVTaWdudXBFbWFpbD12YWxhbmFudG8xMzRAZ21haWwuY29tJnI9MTN=
+lanV2IiwicCI6MTkxNzM3MDk3LCJzIjoxNTA4NzM4LCJmIjp0cnVlLCJ1Ijo2NjE4Mzk0MywiaW=
+F0IjoxNzc0Nzg2NzkwLCJleHAiOjIwOTAzNjI3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoibGlua=
+y1yZWRpcmVjdCJ9.YHZfWYceYo6ImJkJYg4l6-mf0QtzdE4Cxg1sgkSkXSE?" style=3D"colo=
+r: rgb(119,119,119);text-decoration: none;display: inline-block;margin: 0 4=
+px;"><img src=3D"https://substackcdn.com/image/fetch/$s_!LkrL!,w_270,c_limi=
+t,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%=
+2Femail%2Fpublish-button%402x.png" srcset=3D"https://substackcdn.com/image/=
+fetch/$s_!wgfj!,w_135,c_limit,f_auto,q_auto:good,fl_progressive:steep/https=
+%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button.png, https://substackc=
+dn.com/image/fetch/$s_!LkrL!,w_270,c_limit,f_auto,q_auto:good,fl_progressiv=
+e:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpublish-button%402x.png =
+2x, https://substackcdn.com/image/fetch/$s_!KjtY!,w_405,c_limit,f_auto,q_au=
+to:good,fl_progressive:steep/https%3A%2F%2Fsubstack.com%2Fimg%2Femail%2Fpub=
+lish-button%403x.png 3x" width=3D"135" alt=3D"Start writing" height=3D"40" =
+style=3D"max-width: 550px;border: none !important;vertical-align: middle;">=
+</a></p></div></div></td><td></td></tr></tbody></table><img src=3D"https://=
+eotrx.substackcdn.com/open?token=3DeyJtIjoiPDIwMjYwMzI5MTIxOTM3LjMuYzgxNTJk=
+Y2QzZTY2ZmE3Y0BtZy1kMC5zdWJzdGFjay5jb20-IiwidSI6NjYxODM5NDMsInIiOiJ2YWxhbmF=
+udG8xMzRAZ21haWwuY29tIiwiZCI6Im1nLWQwLnN1YnN0YWNrLmNvbSIsInAiOjE5MTczNzA5Ny=
+widCI6Im5ld3NsZXR0ZXIiLCJhIjoiZXZlcnlvbmUiLCJzIjoxNTA4NzM4LCJjIjoicG9zdCIsI=
+mYiOnRydWUsInBvc2l0aW9uIjoiYm90dG9tIiwiaWF0IjoxNzc0Nzg2NzkwLCJleHAiOjE3Nzcz=
+Nzg3OTAsImlzcyI6InB1Yi0wIiwic3ViIjoiZW8ifQ.q25GU6J65FVKCYmjei_0_c2l3eMBIDjy=
+5nNfC-OqrgY" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height=
+:1px !important;width:1px !important;border-width:0 !important;margin-top:0=
+ !important;margin-bottom:0 !important;margin-right:0 !important;margin-lef=
+t:0 !important;padding-top:0 !important;padding-bottom:0 !important;padding=
+-right:0 !important;padding-left:0 !important;"/><img width=3D"1" height=3D=
+"1" alt=3D"" src=3D"https://email.mg-d0.substack.com/o/eJxE0FtuhSAQxvHVHN5q=
+uCiXB9ZiRhgtqYKBwcbdN-eS9PWb5J9fJgDhVurtz9KIRa8VrFNk6IUxo7HaOMHwgLTPG2asQBh=
+noP8rn5Rj316syzoFB2iscyimERVELqcVpQK0wJKXXGqupBNSOGUGNQQrJhlDVKj1CiY8Rn5sX5=
+EPrS-NIPwMoRwstXmt-CJ4qh3ZEzpDjwlzQI8X1rvkz5yiF04YZbgz74XuE33G37YjEVZ29mUO5=
+Th6TnTPmGHZMX7CfdlTAEolv0ITt0ZZVv0FO2TIVIQaHyPfnpaXrfUllgNS9icS1HRBLtflGL2_=
+2RvWZ0lrYZUbFbu8_AsAAP__YS56xA"></body></html>
+--afd4b25954b146534194bda840c9e35e6fb12a6ec1939250fbd5e189d133--
