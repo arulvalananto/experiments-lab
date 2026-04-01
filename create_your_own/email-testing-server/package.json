@@ -1,0 +1,23 @@
+{
+    "name": "email-testing-server",
+    "version": "1.0.0",
+    "description": "Simple Node.js Express server to test email sending",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "express",
+        "email",
+        "nodemailer",
+        "testing"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.2",
+        "nodemailer": "^6.9.7",
+        "dotenv": "^16.3.1"
+    }
+}
