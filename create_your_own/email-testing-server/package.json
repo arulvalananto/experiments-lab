@@ -1,6 +1,6 @@
 {
-    "name": "email-testing-server",
-    "version": "1.0.0",
+    "name": "send-email",
+    "version": "2.0.0",
     "description": "Simple Node.js Express server to test email sending",
     "main": "server.js",
     "scripts": {
