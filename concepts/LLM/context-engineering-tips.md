@@ -9,3 +9,7 @@ These strategies are powerful, but they involve trade-offs with no universal rig
 - **Retrieval precision versus noise:** RAG adds knowledge, but imprecise retrieval adds distractors. If the documents you retrieve aren’t genuinely relevant, they consume tokens and push important content into low-attention positions, so the retrieval system itself has to be well-engineered, or RAG makes things worse.
 
 - **Cost versus richness:** Every token costs money and processing time. The disproportionate scaling of attention means longer contexts get expensive fast, and context engineering is partly an economics problem of figuring out where the return on additional tokens stops being worth the cost.
+
+- **Static versus dynamic context:** A static prompt is simpler and more predictable, but a dynamic prompt that adapts to the conversation can be more efficient and effective. However, dynamic prompts require more complex engineering and can introduce new failure modes if not done carefully.
+
+- **Human-in-the-loop versus fully automated:** Involving humans in the context engineering process can help catch errors and ensure relevance, but it also adds latency and cost. Fully automated systems can be faster and cheaper, but they require robust algorithms to manage context effectively without human oversight.
