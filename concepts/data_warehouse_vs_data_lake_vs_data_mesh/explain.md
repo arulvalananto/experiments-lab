@@ -15,4 +15,4 @@ It works well in larger organizations. But it requires every team to have the ri
 
 ## Conclusion
 
-In practice, many companies use more than one approach. They'll use a warehouse for dashboards and reporting, a lake for machine learning workloads and start applying mesh principles as teams scale. The key is to understand the strengths and weaknesses of each approach and apply them where they make the most sense for your organization's needs.
+In practice, many companies use more than one approach. They'll use a warehouse for dashboards and reporting, a lake for machine learning workloads and start applying mesh principles as teams scale.
